@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lPe-dk-FWE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="99X-K0-Wdp">
+            <objects>
+                <viewController id="lPe-dk-FWE" customClass="OnboardingViewController" customModule="InvDeploy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l3F-Hs-5NB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API Key" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7S-n9-7VQ">
+                                <rect key="frame" x="12" y="431" width="390" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYs-vC-I42">
+                                <rect key="frame" x="184" y="497" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="lPe-dk-FWE" eventType="touchUpInside" id="hSy-da-K1H"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhP-wU-8Hn">
+                                <rect key="frame" x="32" y="378.5" width="350" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="b7S-n9-7VQ" secondAttribute="trailing" constant="12" id="8a2-Ed-CJV"/>
+                            <constraint firstItem="BhP-wU-8Hn" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="32" id="OfG-MN-sPJ"/>
+                            <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="BhP-wU-8Hn" secondAttribute="trailing" constant="32" id="VtG-8s-h6s"/>
+                            <constraint firstItem="b7S-n9-7VQ" firstAttribute="top" secondItem="BhP-wU-8Hn" secondAttribute="bottom" constant="32" id="ZhI-db-goO"/>
+                            <constraint firstItem="DYs-vC-I42" firstAttribute="top" secondItem="b7S-n9-7VQ" secondAttribute="bottom" constant="32" id="eRF-mr-hap"/>
+                            <constraint firstItem="b7S-n9-7VQ" firstAttribute="centerY" secondItem="l3F-Hs-5NB" secondAttribute="centerY" id="gmI-mp-bcd"/>
+                            <constraint firstItem="DYs-vC-I42" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="jrS-5M-kb9"/>
+                            <constraint firstItem="BhP-wU-8Hn" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="nKy-bH-ASw"/>
+                            <constraint firstItem="b7S-n9-7VQ" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="sGW-pG-hnK"/>
+                            <constraint firstItem="b7S-n9-7VQ" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="12" id="w9m-Zc-yWw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v7Y-OC-lMD"/>
+                    </view>
+                    <connections>
+                        <outlet property="apiKeyTextField" destination="b7S-n9-7VQ" id="m9T-6a-43f"/>
+                        <outlet property="doneButton" destination="DYs-vC-I42" id="udc-I1-WTk"/>
+                        <outlet property="titleLabel" destination="BhP-wU-8Hn" id="vlP-UO-0L9"/>
+                        <segue destination="wm4-Sv-QhJ" kind="unwind" identifier="UnwindToBuildList" unwindAction="unwindToBuildListWithSegue:" id="h3T-Pj-A9d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QxD-C6-i2Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wm4-Sv-QhJ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="52"/>
+        </scene>
+    </scenes>
+</document>
