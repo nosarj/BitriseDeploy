@@ -8,8 +8,9 @@
 
 import Foundation
 
-enum DecodeError: Error {
+enum BuildServiceError: Error {
     case RawResponseFail
+    case noIPAFiles
 }
 
 struct BuildService {
@@ -27,19 +28,23 @@ struct BuildService {
             case .success(let data):
                 guard let rawResponse = BuildRawServerResponse.decode(data: data) else {
                     self.downloadGroup.leave()
-                    completion(.failure(DecodeError.RawResponseFail))
+                    completion(.failure(BuildServiceError.RawResponseFail))
                     return
                 }
+                builds = rawResponse.data
                 for build in rawResponse.data {
                     self.downlaodBuildArtifact(build: build) { error in
                         if let error = error {
-                            self.downloadGroup.leave()
-                            completion(.failure(error))
+                            if case BuildServiceError.noIPAFiles = error {
+                                builds.removeAll { $0 == build }
+                            } else {
+                                self.downloadGroup.leave()
+                                completion(.failure(error))
+                            }
                         }
                     }
                 }
                 self.downloadGroup.leave()
-                builds = rawResponse.data
             }
         }
         downloadGroup.notify(queue: .main) {
@@ -57,12 +62,15 @@ struct BuildService {
             case .success(let data):
                 guard let rawResponse = ArtifactRawServerResponse.decode(data: data) else {
                     self.downloadGroup.leave()
-                    completion(DecodeError.RawResponseFail)
+                    completion(BuildServiceError.RawResponseFail)
                     return
                 }
                 self.downloadAppArtifact(artifacts: rawResponse.data, build: build) { (error) in
                     if let error = error {
-                         self.downloadGroup.leave()
+                        if case BuildServiceError.noIPAFiles = error {
+                        } else {
+                            self.downloadGroup.leave()
+                        }
                         completion(error)
                     }
                 }
@@ -72,6 +80,10 @@ struct BuildService {
     }
 
     private func downloadAppArtifact(artifacts: [Artifact], build: Build, completion: @escaping (Error?) -> Void) {
+        if !artifacts.contains(where: { $0.artifactType == "ios-ipa" }) {
+            completion(BuildServiceError.noIPAFiles)
+            return
+        }
         for artifact in artifacts {
             if artifact.artifactType == "ios-ipa" {
                 downloadGroup.enter()
@@ -84,7 +96,7 @@ struct BuildService {
                     case .success(let data):
                         guard let rawResponse = AppRawResponse.decode(data: data) else {
                             self.downloadGroup.leave()
-                            completion(DecodeError.RawResponseFail)
+                            completion(BuildServiceError.RawResponseFail)
                             return
                         }
                         build.app = rawResponse.data

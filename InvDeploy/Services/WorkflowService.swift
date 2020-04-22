@@ -17,7 +17,7 @@ enum WorkflowService {
                 completion(.failure(error))
             case .success(let data):
                 guard let workflowList = WorkflowList.decode(data: data) else {
-                    completion(.failure(DecodeError.RawResponseFail))
+                    completion(.failure(BuildServiceError.RawResponseFail))
                     return
                 }
                 completion(.success(workflowList.data))
