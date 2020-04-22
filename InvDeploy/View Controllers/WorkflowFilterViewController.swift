@@ -62,7 +62,6 @@ class WorkflowFilterViewController: UIViewController {
     @IBAction func doneButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(selectedWorkflow, forKey: "selectedWorkflow")
         performSegue(withIdentifier: "unwindToBuildListWithRefresh", sender: self)
-
     }
 }
 

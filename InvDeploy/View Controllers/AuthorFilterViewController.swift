@@ -8,16 +8,11 @@
 
 import UIKit
 
-//protocol AuthorFilterViewControllerDelgate: class {
-//    func didFilterAuthors(authors: [String])
-//}
-
 class AuthorFilterViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var authorList: [String] = []
     var selectedAuthors: [String] = []
-//    weak var delegate: AuthorFilterViewControllerDelgate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +43,6 @@ class AuthorFilterViewController: UIViewController {
 
     @IBAction func doneButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(selectedAuthors, forKey: "filteredAuthors")
-//        delegate?.didFilterAuthors(authors: selectedAuthors)
         performSegue(withIdentifier: "UnwindToBuildListFromAuthor", sender: self)
     }
 }

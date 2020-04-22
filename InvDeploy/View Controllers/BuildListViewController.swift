@@ -27,7 +27,6 @@ class BuildListViewController: UIViewController {
         guard let destination = segue.destination as? FilterMenuViewController else { return }
         let authorList = Array(AuthorService.configureAuthorList(builds: builds))
         destination.authorList = authorList
-//        destination.delegate = self
     }
 
     @IBAction func unwindToBuildListWithRefresh(segue:UIStoryboardSegue) {
@@ -129,10 +128,3 @@ extension BuildListViewController: BuildTableViewCellDelegate {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
-//
-//extension BuildListViewController: AuthorFilterViewControllerDelgate {
-//    func didFilterAuthors(authors: [String]) {
-//        filterBuilds()
-//        tableView.reloadData()
-//    }
-//}
