@@ -65,6 +65,7 @@
                         <outlet property="tableView" destination="nFw-h0-zCY" id="WVH-6r-Xqd"/>
                         <segue destination="uKG-cD-YA8" kind="show" identifier="FilterSegue" id="i5n-M3-8kB"/>
                         <segue destination="lZ1-zA-0Pi" kind="presentation" identifier="OnboardingSegue" modalPresentationStyle="fullScreen" id="u7s-BS-5m8"/>
+                        <segue destination="31A-qB-FSe" kind="show" identifier="WorkflowFilterSegue" id="ZNF-us-PVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -136,8 +137,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GxJ-Jt-tg3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicStyle" textLabel="cCC-fP-UnL" style="IBUITableViewCellStyleDefault" id="u9N-6U-Ga4">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u9N-6U-Ga4" id="8v6-rV-ktJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cCC-fP-UnL">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -149,13 +169,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wdt-Ih-Kkd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="30u-FS-KDL"/>
                     <connections>
                         <outlet property="tableView" destination="GxJ-Jt-tg3" id="TKP-2J-Nf9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQN-jy-0d1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="-559"/>
+            <point key="canvasLocation" x="942" y="-559"/>
         </scene>
     </scenes>
     <resources>

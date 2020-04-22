@@ -83,8 +83,8 @@ class BuildListViewController: UIViewController {
     private func filterBuilds() {
         filteredBuilds = builds
         for build in builds {
-            if let filteredAuthors = filteredAuthors {
-                if !filteredAuthors.contains(build.originalBuildParams.pullRequestAuthor) {
+            if let filteredAuthors = filteredAuthors, let author = build.originalBuildParams.pullRequestAuthor {
+                if !filteredAuthors.contains(author) {
                     filteredBuilds.removeAll { $0 == build }
                 }
             }
@@ -101,7 +101,9 @@ class BuildListViewController: UIViewController {
     }
 
     @IBAction func filterButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "FilterSegue", sender: self)
+//        performSegue(withIdentifier: "FilterSegue", sender: self)
+        performSegue(withIdentifier: "WorkflowFilterSegue", sender: self)
+
     }
 }
 

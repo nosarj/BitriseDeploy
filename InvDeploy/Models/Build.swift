@@ -18,7 +18,7 @@ class Build: Decodable {
 //    let branch: String
     let buildNumber: Int
 //    let commitHash
-    let commitMessage: String
+    let commitMessage: String?
     var version: String? = ""
     var app: App? = nil
 //    let version: String

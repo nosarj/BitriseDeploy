@@ -38,7 +38,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0T-75-fHh">
-                                <rect key="frame" x="0.0" y="56" width="129" height="50"/>
+                                <rect key="frame" x="0.0" y="67" width="129" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CommitMessage" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hts-lh-LJx">
                                         <rect key="frame" x="0.0" y="0.0" width="129" height="50"/>
@@ -53,24 +53,6 @@
                                     <constraint firstItem="Hts-lh-LJx" firstAttribute="top" secondItem="K0T-75-fHh" secondAttribute="top" id="PIG-1Y-9lg"/>
                                     <constraint firstItem="Hts-lh-LJx" firstAttribute="leading" secondItem="K0T-75-fHh" secondAttribute="leading" id="dKL-rT-KFb"/>
                                     <constraint firstAttribute="trailing" secondItem="Hts-lh-LJx" secondAttribute="trailing" id="ih9-nW-8zA"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hZ-ge-1yh">
-                                <rect key="frame" x="0.0" y="112" width="129" height="5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6i-Hs-En5">
-                                        <rect key="frame" x="0.0" y="0.0" width="129" height="5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="r6i-Hs-En5" firstAttribute="leading" secondItem="1hZ-ge-1yh" secondAttribute="leading" id="6Ng-mH-EUg"/>
-                                    <constraint firstAttribute="trailing" secondItem="r6i-Hs-En5" secondAttribute="trailing" id="dyC-D6-8mz"/>
-                                    <constraint firstItem="r6i-Hs-En5" firstAttribute="top" secondItem="1hZ-ge-1yh" secondAttribute="top" id="iei-sW-7eo"/>
-                                    <constraint firstAttribute="bottom" secondItem="r6i-Hs-En5" secondAttribute="bottom" id="opi-mR-z0a"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -103,7 +85,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="authorLabel" destination="r6i-Hs-En5" id="ldk-Of-2Oh"/>
                 <outlet property="commitMessageLabel" destination="Hts-lh-LJx" id="qNB-p0-OiH"/>
                 <outlet property="installPageButton" destination="flB-tH-SFA" id="zne-ij-7gH"/>
                 <outlet property="versionLabel" destination="pSo-wC-ng7" id="GwW-Tn-Uob"/>

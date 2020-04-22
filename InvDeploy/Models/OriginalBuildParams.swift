@@ -10,11 +10,13 @@ import Foundation
 
 struct OriginalBuildParams: Decodable {
     
-    let commitHash, commitMessage, branch: String
-    let pullRequestID: Int
-    let pullRequestMergeBranch, pullRequestHeadBranch, pullRequestAuthor: String
-    let diffURL: String
-    let checkRunID: Int
+    let commitHash: String?
+    let commitMessage: String?
+    let branch: String?
+    let pullRequestID: Int?
+    let pullRequestMergeBranch, pullRequestHeadBranch, pullRequestAuthor: String?
+    let diffURL: String?
+    let checkRunID: Int?
 
     enum CodingKeys: String, CodingKey {
         case commitHash = "commit_hash"

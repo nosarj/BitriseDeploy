@@ -16,7 +16,6 @@ class BuildTableViewCell: UITableViewCell {
 
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var commitMessageLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var installPageButton: UIButton!
 
     weak var delegate: BuildTableViewCellDelegate?
@@ -36,8 +35,11 @@ class BuildTableViewCell: UITableViewCell {
         if let buildNumber = build?.buildNumber, let versionNumber = build?.version, let author = build?.originalBuildParams.pullRequestAuthor {
             versionLabel.text = "\(versionNumber) (\(buildNumber)) - \(author)"
         }
-        commitMessageLabel.text = build?.commitMessage
-//        authorLabel.text =
+        if let commitMessage = build?.commitMessage {
+            commitMessageLabel.text = commitMessage
+        } else {
+            commitMessageLabel.text = build?.originalBuildParams.branch
+        }
     }
 
     @IBAction func intallPageButtonTapped(_ sender: Any) {

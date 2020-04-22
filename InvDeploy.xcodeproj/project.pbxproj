@@ -32,6 +32,8 @@
 		8656B52B244C38C900AA11E2 /* InvDeployTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B52A244C38C900AA11E2 /* InvDeployTests.swift */; };
 		8656B536244C3B2200AA11E2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B535244C3B2200AA11E2 /* NetworkService.swift */; };
 		8656B538244C3B3700AA11E2 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B537244C3B3700AA11E2 /* Build.swift */; };
+		86850D2C244F66CA004F52F9 /* WorkflowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2B244F66CA004F52F9 /* WorkflowService.swift */; };
+		86850D2E244F679B004F52F9 /* WorkflowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2D244F679B004F52F9 /* WorkflowList.swift */; };
 		86FDC28F244C69BE00F2F1D2 /* BuildService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC28E244C69BE00F2F1D2 /* BuildService.swift */; };
 		86FDC291244C6CC400F2F1D2 /* BuildRawServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC290244C6CC400F2F1D2 /* BuildRawServerResponse.swift */; };
 		86FDC293244C6FE200F2F1D2 /* BuildPaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC292244C6FE200F2F1D2 /* BuildPaging.swift */; };
@@ -79,6 +81,8 @@
 		8656B52C244C38C900AA11E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8656B535244C3B2200AA11E2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8656B537244C3B3700AA11E2 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		86850D2B244F66CA004F52F9 /* WorkflowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowService.swift; sourceTree = "<group>"; };
+		86850D2D244F679B004F52F9 /* WorkflowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowList.swift; sourceTree = "<group>"; };
 		86FDC28E244C69BE00F2F1D2 /* BuildService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildService.swift; sourceTree = "<group>"; };
 		86FDC290244C6CC400F2F1D2 /* BuildRawServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRawServerResponse.swift; sourceTree = "<group>"; };
 		86FDC292244C6FE200F2F1D2 /* BuildPaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildPaging.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				863802BC244CD62600D11C2B /* App.swift */,
 				863802B4244CCCC800D11C2B /* ArtifactMetaData.swift */,
 				863802B6244CCCEF00D11C2B /* AppInfo.swift */,
+				86850D2D244F679B004F52F9 /* WorkflowList.swift */,
 				863802B1244CCC7600D11C2B /* Raw Responses */,
 			);
 			path = Models;
@@ -211,6 +216,7 @@
 				863802C4244E253600D11C2B /* KeychainService.swift */,
 				863802C6244E258C00D11C2B /* KeychainPasswordItem.swift */,
 				863802CC244EC75500D11C2B /* OnboardingService.swift */,
+				86850D2B244F66CA004F52F9 /* WorkflowService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -343,7 +349,9 @@
 				8656B538244C3B3700AA11E2 /* Build.swift in Sources */,
 				863802BB244CD5CD00D11C2B /* AppRawResponse.swift in Sources */,
 				863802B3244CCC9F00D11C2B /* Artifact.swift in Sources */,
+				86850D2C244F66CA004F52F9 /* WorkflowService.swift in Sources */,
 				86FDC293244C6FE200F2F1D2 /* BuildPaging.swift in Sources */,
+				86850D2E244F679B004F52F9 /* WorkflowList.swift in Sources */,
 				863802CF244F17C100D11C2B /* WorkflowFilterViewController.swift in Sources */,
 				863802AE244C883E00D11C2B /* OriginalBuildParams.swift in Sources */,
 				863802C1244DC49600D11C2B /* AuthorService.swift in Sources */,

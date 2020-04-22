@@ -21,8 +21,8 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYs-vC-I42">
-                                <rect key="frame" x="184" y="497" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="188.5" y="497" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="lPe-dk-FWE" eventType="touchUpInside" id="hSy-da-K1H"/>
                                 </connections>
