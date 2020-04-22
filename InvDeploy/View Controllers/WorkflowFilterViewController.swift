@@ -13,6 +13,7 @@ class WorkflowFilterViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
     var workflowArray: [String] = []
+    var selectedWorkflow: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,12 @@ class WorkflowFilterViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        UserDefaults.standard.set(selectedWorkflow, forKey: "selectedWorkflow")
+        performSegue(withIdentifier: "unwindToBuildListWithRefresh", sender: self)
+
+    }
 }
 
 extension WorkflowFilterViewController: UITableViewDelegate, UITableViewDataSource {
@@ -81,10 +88,10 @@ extension WorkflowFilterViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         if cell.accessoryType == .none {
-            UserDefaults.standard.set(cell.textLabel?.text, forKey: "selectedWorkflow")
+            selectedWorkflow = cell.textLabel?.text
             cell.accessoryType = .checkmark
         } else {
-            UserDefaults.standard.set(nil, forKey: "selectedWorkflow")
+            selectedWorkflow = nil
             cell.accessoryType = .none
         }
     }

@@ -8,20 +8,21 @@
 
 import UIKit
 
-protocol AuthorFilterViewControllerDelgate: class {
-    func didFilterAuthors(authors: [String])
-}
+//protocol AuthorFilterViewControllerDelgate: class {
+//    func didFilterAuthors(authors: [String])
+//}
 
 class AuthorFilterViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var authorList: [String] = []
     var selectedAuthors: [String] = []
-    weak var delegate: AuthorFilterViewControllerDelgate?
+//    weak var delegate: AuthorFilterViewControllerDelgate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         applyStyling()
+        configureSelectedAuthors()
         configureTableView()
     }
 
@@ -33,11 +34,22 @@ class AuthorFilterViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedSectionFooterHeight = 40
+        tableView.register(UINib(nibName: "InfoFooterView", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "FooterView")
+    }
+    
+    private func configureSelectedAuthors() {
+        if let filteredAuthors = UserDefaults.standard.array(forKey: "filteredAuthors") as? [String], filteredAuthors.count > 0 {
+            selectedAuthors = filteredAuthors
+        } else {
+            selectedAuthors = authorList
+        }
     }
 
     @IBAction func doneButtonTapped(_ sender: Any) {
-        delegate?.didFilterAuthors(authors: selectedAuthors)
-        navigationController?.popViewController(animated: true)
+        UserDefaults.standard.set(selectedAuthors, forKey: "filteredAuthors")
+//        delegate?.didFilterAuthors(authors: selectedAuthors)
+        performSegue(withIdentifier: "UnwindToBuildListFromAuthor", sender: self)
     }
 }
 
@@ -70,5 +82,19 @@ extension AuthorFilterViewController: UITableViewDelegate, UITableViewDataSource
             cell?.accessoryType = .checkmark
             selectedAuthors.append(authorList[indexPath.row])
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0 {
+            guard let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "FooterView") as? InfoFooterView else { return nil }
+            footer.titleLabel.text = "Only builds from pull requests have authors. You will still view builds from other sources that have no author"
+            footer.backgroundColor = .systemGray
+            return footer
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

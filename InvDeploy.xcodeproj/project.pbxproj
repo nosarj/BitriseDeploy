@@ -34,6 +34,10 @@
 		8656B538244C3B3700AA11E2 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B537244C3B3700AA11E2 /* Build.swift */; };
 		86850D2C244F66CA004F52F9 /* WorkflowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2B244F66CA004F52F9 /* WorkflowService.swift */; };
 		86850D2E244F679B004F52F9 /* WorkflowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2D244F679B004F52F9 /* WorkflowList.swift */; };
+		86850D3024501313004F52F9 /* FilterMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2F24501313004F52F9 /* FilterMenuViewController.swift */; };
+		86850D33245015AA004F52F9 /* Filters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86850D31245015AA004F52F9 /* Filters.storyboard */; };
+		86850D39245033F3004F52F9 /* InfoFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D38245033F3004F52F9 /* InfoFooterView.swift */; };
+		86850D3B245033FD004F52F9 /* InfoFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86850D3A245033FD004F52F9 /* InfoFooterView.xib */; };
 		86FDC28F244C69BE00F2F1D2 /* BuildService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC28E244C69BE00F2F1D2 /* BuildService.swift */; };
 		86FDC291244C6CC400F2F1D2 /* BuildRawServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC290244C6CC400F2F1D2 /* BuildRawServerResponse.swift */; };
 		86FDC293244C6FE200F2F1D2 /* BuildPaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC292244C6FE200F2F1D2 /* BuildPaging.swift */; };
@@ -83,6 +87,10 @@
 		8656B537244C3B3700AA11E2 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		86850D2B244F66CA004F52F9 /* WorkflowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowService.swift; sourceTree = "<group>"; };
 		86850D2D244F679B004F52F9 /* WorkflowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowList.swift; sourceTree = "<group>"; };
+		86850D2F24501313004F52F9 /* FilterMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewController.swift; sourceTree = "<group>"; };
+		86850D32245015AA004F52F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InvDeploy/Base.lproj/Filters.storyboard; sourceTree = "<group>"; };
+		86850D38245033F3004F52F9 /* InfoFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFooterView.swift; sourceTree = "<group>"; };
+		86850D3A245033FD004F52F9 /* InfoFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoFooterView.xib; sourceTree = "<group>"; };
 		86FDC28E244C69BE00F2F1D2 /* BuildService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildService.swift; sourceTree = "<group>"; };
 		86FDC290244C6CC400F2F1D2 /* BuildRawServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRawServerResponse.swift; sourceTree = "<group>"; };
 		86FDC292244C6FE200F2F1D2 /* BuildPaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildPaging.swift; sourceTree = "<group>"; };
@@ -147,6 +155,7 @@
 				8656B53A244C3B4700AA11E2 /* Network */,
 				8656B539244C3B3D00AA11E2 /* Models */,
 				8656B519244C38C500AA11E2 /* Main.storyboard */,
+				86850D31245015AA004F52F9 /* Filters.storyboard */,
 				863802C8244E263600D11C2B /* Onboarding.storyboard */,
 				8656B51C244C38C800AA11E2 /* Assets.xcassets */,
 				8656B51E244C38C800AA11E2 /* LaunchScreen.storyboard */,
@@ -203,6 +212,7 @@
 				863802BE244D85FB00D11C2B /* AuthorFilterViewController.swift */,
 				863802CA244E27C000D11C2B /* OnboardingViewController.swift */,
 				863802CE244F17C100D11C2B /* WorkflowFilterViewController.swift */,
+				86850D2F24501313004F52F9 /* FilterMenuViewController.swift */,
 				86FDC298244C760400F2F1D2 /* Cells */,
 			);
 			path = "View Controllers";
@@ -226,6 +236,8 @@
 			children = (
 				86FDC294244C75FC00F2F1D2 /* BuildTableViewCell.swift */,
 				86FDC295244C75FC00F2F1D2 /* BuildTableViewCell.xib */,
+				86850D38245033F3004F52F9 /* InfoFooterView.swift */,
+				86850D3A245033FD004F52F9 /* InfoFooterView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -311,9 +323,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86850D33245015AA004F52F9 /* Filters.storyboard in Resources */,
 				8656B520244C38C800AA11E2 /* LaunchScreen.storyboard in Resources */,
 				863802C9244E263600D11C2B /* Onboarding.storyboard in Resources */,
 				8656B51D244C38C800AA11E2 /* Assets.xcassets in Resources */,
+				86850D3B245033FD004F52F9 /* InfoFooterView.xib in Resources */,
 				86FDC297244C75FC00F2F1D2 /* BuildTableViewCell.xib in Resources */,
 				8656B51B244C38C500AA11E2 /* Main.storyboard in Resources */,
 			);
@@ -346,6 +360,7 @@
 				863802CB244E27C000D11C2B /* OnboardingViewController.swift in Sources */,
 				863802BD244CD62600D11C2B /* App.swift in Sources */,
 				86FDC296244C75FC00F2F1D2 /* BuildTableViewCell.swift in Sources */,
+				86850D39245033F3004F52F9 /* InfoFooterView.swift in Sources */,
 				8656B538244C3B3700AA11E2 /* Build.swift in Sources */,
 				863802BB244CD5CD00D11C2B /* AppRawResponse.swift in Sources */,
 				863802B3244CCC9F00D11C2B /* Artifact.swift in Sources */,
@@ -354,6 +369,7 @@
 				86850D2E244F679B004F52F9 /* WorkflowList.swift in Sources */,
 				863802CF244F17C100D11C2B /* WorkflowFilterViewController.swift in Sources */,
 				863802AE244C883E00D11C2B /* OriginalBuildParams.swift in Sources */,
+				86850D3024501313004F52F9 /* FilterMenuViewController.swift in Sources */,
 				863802C1244DC49600D11C2B /* AuthorService.swift in Sources */,
 				863802C7244E258C00D11C2B /* KeychainPasswordItem.swift in Sources */,
 				8656B536244C3B2200AA11E2 /* NetworkService.swift in Sources */,
@@ -395,6 +411,14 @@
 				8656B51F244C38C800AA11E2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		86850D31245015AA004F52F9 /* Filters.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86850D32245015AA004F52F9 /* Base */,
+			);
+			name = Filters.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

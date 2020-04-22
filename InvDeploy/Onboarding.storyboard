@@ -53,7 +53,7 @@
                         <outlet property="apiKeyTextField" destination="b7S-n9-7VQ" id="m9T-6a-43f"/>
                         <outlet property="doneButton" destination="DYs-vC-I42" id="udc-I1-WTk"/>
                         <outlet property="titleLabel" destination="BhP-wU-8Hn" id="vlP-UO-0L9"/>
-                        <segue destination="wm4-Sv-QhJ" kind="unwind" identifier="UnwindToBuildList" unwindAction="unwindToBuildListWithSegue:" id="h3T-Pj-A9d"/>
+                        <segue destination="wm4-Sv-QhJ" kind="unwind" identifier="unwindToBuildListWithRefresh" unwindAction="unwindToBuildListWithRefreshWithSegue:" id="h3T-Pj-A9d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxD-C6-i2Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

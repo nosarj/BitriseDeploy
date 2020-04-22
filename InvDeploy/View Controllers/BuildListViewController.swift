@@ -14,7 +14,6 @@ class BuildListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
     var builds = [Build]()
-    var filteredAuthors: [String]?
     var filteredBuilds: [Build] = []
 
     override func viewDidLoad() {
@@ -25,15 +24,19 @@ class BuildListViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? AuthorFilterViewController else { return }
-        let authorsList = Array(AuthorService.configureAuthorList(builds: builds))
-        destination.selectedAuthors = filteredAuthors ?? authorsList
-        destination.authorList = authorsList
-        destination.delegate = self
+        guard let destination = segue.destination as? FilterMenuViewController else { return }
+        let authorList = Array(AuthorService.configureAuthorList(builds: builds))
+        destination.authorList = authorList
+//        destination.delegate = self
     }
 
-    @IBAction func unwindToBuildList(segue:UIStoryboardSegue) {
+    @IBAction func unwindToBuildListWithRefresh(segue:UIStoryboardSegue) {
         manualRefresh()
+    }
+    
+    @IBAction func unwindToBuildListFromAuthorFilter(segue:UIStoryboardSegue) {
+        filterBuilds()
+        tableView.reloadData()
     }
 
     private func applyStyling() {
@@ -83,7 +86,7 @@ class BuildListViewController: UIViewController {
     private func filterBuilds() {
         filteredBuilds = builds
         for build in builds {
-            if let filteredAuthors = filteredAuthors, let author = build.originalBuildParams.pullRequestAuthor {
+            if let filteredAuthors = UserDefaults.standard.array(forKey: "filteredAuthors") as? [String], let author = build.originalBuildParams.pullRequestAuthor {
                 if !filteredAuthors.contains(author) {
                     filteredBuilds.removeAll { $0 == build }
                 }
@@ -101,9 +104,7 @@ class BuildListViewController: UIViewController {
     }
 
     @IBAction func filterButtonTapped(_ sender: Any) {
-//        performSegue(withIdentifier: "FilterSegue", sender: self)
-        performSegue(withIdentifier: "WorkflowFilterSegue", sender: self)
-
+        performSegue(withIdentifier: "FilterMenuSegue", sender: self)
     }
 }
 
@@ -128,11 +129,10 @@ extension BuildListViewController: BuildTableViewCellDelegate {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
-
-extension BuildListViewController: AuthorFilterViewControllerDelgate {
-    func didFilterAuthors(authors: [String]) {
-        filteredAuthors = authors
-        filterBuilds()
-        tableView.reloadData()
-    }
-}
+//
+//extension BuildListViewController: AuthorFilterViewControllerDelgate {
+//    func didFilterAuthors(authors: [String]) {
+//        filterBuilds()
+//        tableView.reloadData()
+//    }
+//}

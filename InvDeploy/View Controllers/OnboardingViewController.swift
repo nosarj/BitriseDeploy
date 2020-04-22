@@ -28,7 +28,7 @@ class OnboardingViewController: UIViewController {
         guard let apiKey = apiKeyTextField.text else { return }
         if OnboardingService.validateAPIKey(apiKey) {
             KeychainService.savePassword(apiKey)
-            performSegue(withIdentifier: "UnwindToBuildList", sender: self)
+            performSegue(withIdentifier: "unwindToBuildListWithRefresh", sender: self)
         } else {
             showValidationAlert()
         }
