@@ -17,8 +17,11 @@ enum NetworkError: Error {
 }
 
 enum NetworkService {
+    
+    private static var appID: String { UserDefaults.standard.string(forKey: "AppID") ?? "" }
+    
     static func downloadBuilds(urlSession: URLSession = URLSession(configuration: .default), completion: @escaping (Result<Data,Error>)->Void) {
-        guard var urlComponents = URLComponents(string: "https://api.bitrise.io/v0.1/apps/f3f95d514f0229b3/builds") else { return }
+        guard var urlComponents = URLComponents(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/builds") else { return }
         urlComponents.queryItems = [
             URLQueryItem(name: "limit", value: "25"),
             URLQueryItem(name: "status", value: "1")
@@ -40,7 +43,7 @@ enum NetworkService {
     }
 
     static func downloadArtifactList(urlSession: URLSession = URLSession(configuration: .default), buildSlug: String, completion: @escaping (Result<Data,Error>)->Void) {
-        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/f3f95d514f0229b3/builds/\(buildSlug)/artifacts") else { return }
+        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/builds/\(buildSlug)/artifacts") else { return }
         var request = URLRequest(url: url)
         addAuthorizationHeader(&request)
         getRequest(request, session: urlSession) { (result)  in
@@ -54,7 +57,7 @@ enum NetworkService {
     }
 
     static func downloadArtifact(urlSession: URLSession = URLSession(configuration: .default), buildSlug: String, artifactSlug: String, completion: @escaping (Result<Data,Error>)->Void) {
-        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/f3f95d514f0229b3/builds/\(buildSlug)/artifacts/\(artifactSlug)") else { return }
+        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/builds/\(buildSlug)/artifacts/\(artifactSlug)") else { return }
         var request = URLRequest(url: url)
         addAuthorizationHeader(&request)
         getRequest(request, session: urlSession) { (result)  in
@@ -68,7 +71,7 @@ enum NetworkService {
     }
     
     static func downloadWorkflows(urlSession: URLSession = URLSession(configuration: .default), completion: @escaping (Result<Data,Error>)->Void) {
-        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/f3f95d514f0229b3/build-workflows") else { return }
+        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/build-workflows") else { return }
         var request = URLRequest(url: url)
         addAuthorizationHeader(&request)
         getRequest(request, session: urlSession) { (result)  in

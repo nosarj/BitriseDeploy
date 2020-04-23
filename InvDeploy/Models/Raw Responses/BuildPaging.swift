@@ -10,7 +10,7 @@ import Foundation
 
 struct BuildPaging: Decodable {
     let totalItemCount, pageItemLimit: Int
-    let next: String
+    let next: String?
 
     enum CodingKeys: String, CodingKey {
         case totalItemCount = "total_item_count"

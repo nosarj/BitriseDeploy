@@ -87,11 +87,23 @@ extension WorkflowFilterViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         if cell.accessoryType == .none {
+            removeOtherCheckmarks(tableView)
             selectedWorkflow = cell.textLabel?.text
             cell.accessoryType = .checkmark
         } else {
             selectedWorkflow = nil
             cell.accessoryType = .none
+        }
+    }
+    
+    private func removeOtherCheckmarks(_ tableView: UITableView) {
+        if let selectedWorkflow = selectedWorkflow, let previousIndex = workflowArray.firstIndex(of: selectedWorkflow) {
+            let cell = tableView.cellForRow(at: IndexPath(row: previousIndex, section: 0))
+            cell?.accessoryType = .none
+        }
+        if let selectedWorkflow = UserDefaults.standard.string(forKey: "selectedWorkflow"), let previousIndex = workflowArray.firstIndex(of: selectedWorkflow) {
+            let cell = tableView.cellForRow(at: IndexPath(row: previousIndex, section: 0))
+            cell?.accessoryType = .none
         }
     }
 }
