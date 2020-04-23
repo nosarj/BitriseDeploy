@@ -22,7 +22,6 @@ class FilterMenuViewController: UIViewController {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard let destination = segue.destination as? AuthorFilterViewController else { return }
             destination.authorList = authorList
-    //        destination.delegate = self
         }
     
     private func applyStyling() {

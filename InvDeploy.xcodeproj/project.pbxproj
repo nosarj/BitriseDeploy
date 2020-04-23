@@ -29,9 +29,11 @@
 		8656B51B244C38C500AA11E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8656B519244C38C500AA11E2 /* Main.storyboard */; };
 		8656B51D244C38C800AA11E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8656B51C244C38C800AA11E2 /* Assets.xcassets */; };
 		8656B520244C38C800AA11E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8656B51E244C38C800AA11E2 /* LaunchScreen.storyboard */; };
-		8656B52B244C38C900AA11E2 /* InvDeployTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B52A244C38C900AA11E2 /* InvDeployTests.swift */; };
+		8656B52B244C38C900AA11E2 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B52A244C38C900AA11E2 /* NetworkServiceTests.swift */; };
 		8656B536244C3B2200AA11E2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B535244C3B2200AA11E2 /* NetworkService.swift */; };
 		8656B538244C3B3700AA11E2 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B537244C3B3700AA11E2 /* Build.swift */; };
+		866AD2DF245189FD00E7385C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2DE245189FD00E7385C /* MockURLSession.swift */; };
+		866AD2E12451C78C00E7385C /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2E02451C78C00E7385C /* MockURLSessionDataTask.swift */; };
 		86850D2C244F66CA004F52F9 /* WorkflowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2B244F66CA004F52F9 /* WorkflowService.swift */; };
 		86850D2E244F679B004F52F9 /* WorkflowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2D244F679B004F52F9 /* WorkflowList.swift */; };
 		86850D3024501313004F52F9 /* FilterMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2F24501313004F52F9 /* FilterMenuViewController.swift */; };
@@ -81,10 +83,12 @@
 		8656B51F244C38C800AA11E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8656B521244C38C800AA11E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8656B526244C38C900AA11E2 /* InvDeployTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InvDeployTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8656B52A244C38C900AA11E2 /* InvDeployTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvDeployTests.swift; sourceTree = "<group>"; };
+		8656B52A244C38C900AA11E2 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		8656B52C244C38C900AA11E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8656B535244C3B2200AA11E2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		8656B537244C3B3700AA11E2 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		866AD2DE245189FD00E7385C /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		866AD2E02451C78C00E7385C /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		86850D2B244F66CA004F52F9 /* WorkflowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowService.swift; sourceTree = "<group>"; };
 		86850D2D244F679B004F52F9 /* WorkflowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowList.swift; sourceTree = "<group>"; };
 		86850D2F24501313004F52F9 /* FilterMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewController.swift; sourceTree = "<group>"; };
@@ -166,8 +170,10 @@
 		8656B529244C38C900AA11E2 /* InvDeployTests */ = {
 			isa = PBXGroup;
 			children = (
-				8656B52A244C38C900AA11E2 /* InvDeployTests.swift */,
+				8656B52A244C38C900AA11E2 /* NetworkServiceTests.swift */,
 				8656B52C244C38C900AA11E2 /* Info.plist */,
+				866AD2DE245189FD00E7385C /* MockURLSession.swift */,
+				866AD2E02451C78C00E7385C /* MockURLSessionDataTask.swift */,
 			);
 			path = InvDeployTests;
 			sourceTree = "<group>";
@@ -382,7 +388,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8656B52B244C38C900AA11E2 /* InvDeployTests.swift in Sources */,
+				866AD2E12451C78C00E7385C /* MockURLSessionDataTask.swift in Sources */,
+				866AD2DF245189FD00E7385C /* MockURLSession.swift in Sources */,
+				8656B52B244C38C900AA11E2 /* NetworkServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
