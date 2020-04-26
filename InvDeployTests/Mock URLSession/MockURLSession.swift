@@ -3,16 +3,14 @@
 //  InvDeployTests
 //
 //  Created by Yishai Roodyn on 23/04/2020.
-//  Copyright © 2020 Investing.com. All rights reserved.
+//  Copyright © 2020 Yishai Roodyn. All rights reserved.
 //
 
 import Foundation
 
 class MockURLSession: URLSession {
     
-    override init() {
-        
-    }
+    override init() { }
     
     override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         let urlResponse = HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)

@@ -3,7 +3,7 @@
 //  InvDeployTests
 //
 //  Created by Yishai Roodyn on 26/04/2020.
-//  Copyright © 2020 Investing.com. All rights reserved.
+//  Copyright © 2020 Yishai Roodyn. All rights reserved.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ struct MockArtifactResponse {
     
     static let mockArtifactResponse: [String: Any] = [
         "data": [
-            "title": "Investing.comDebug.ipa",
+            "title": "Test.comDebug.ipa",
             "artifact_type": "ios-ipa",
             "artifact_meta": [
                 "info_type_id": "ios-ipa",
@@ -59,7 +59,7 @@ struct MockArtifactResponse {
                 "install_type": "limited",
                 "app_info": [
                     "app_title": "INV DEV",
-                    "bundle_id": "com.investing.appDebug",
+                    "bundle_id": "com.Test.appDebug",
                     "version": "5.9.1",
                     "build_number": "915",
                     "min_OS_version": "11.0",
@@ -78,7 +78,7 @@ struct MockArtifactResponse {
                     "distribution_type": "development"
                 ]
             ],
-            "expiring_download_url": "https://bitrise-prod-build-storage.s3.amazonaws.com/builds/6a207b1bc7a8501b/artifacts/37001183/Investing.comDebug.ipa?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIV2YZWMVCNWNR2HA%2F20200426%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200426T052208Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=dfa8352695e24c07975cd869fbd1a5693f1a1ad2a22b2820d1a3f0f02783fda3",
+            "expiring_download_url": "https://bitrise-prod-build-storage.s3.amazonaws.com/builds/6a207b1bc7a8501b/artifacts/37001183/Test.comDebug.ipa?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIV2YZWMVCNWNR2HA%2F20200426%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200426T052208Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=dfa8352695e24c07975cd869fbd1a5693f1a1ad2a22b2820d1a3f0f02783fda3",
             "is_public_page_enabled": true,
             "slug": "0a75ce3ba7d97a2d",
             "public_install_page_url": "https://www.bitrise.io/artifact/37001183/p/73eb184c21ab5f60aa470f0478fab357",

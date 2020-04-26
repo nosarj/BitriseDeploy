@@ -3,7 +3,7 @@
 //  InvDeployTests
 //
 //  Created by Yishai Roodyn on 26/04/2020.
-//  Copyright © 2020 Investing.com. All rights reserved.
+//  Copyright © 2020 Yishai Roodyn. All rights reserved.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ struct MockArtifactListResponse {
      static let mockArtifactListJSON: [String: Any] = [
             "data": [
                 [
-                    "title": "xcode-test-results-Investing.comDebug.html",
+                    "title": "xcode-test-results-Test.comDebug.html",
                     "artifact_type": "file",
                     "artifact_meta": nil,
                     "is_public_page_enabled": false,
@@ -20,7 +20,7 @@ struct MockArtifactListResponse {
                     "file_size_bytes": 51648
                 ],
                 [
-                    "title": "Investing.comDebug.dSYM.zip",
+                    "title": "Test.comDebug.dSYM.zip",
                     "artifact_type": "file",
                     "artifact_meta": nil,
                     "is_public_page_enabled": false,
@@ -28,7 +28,7 @@ struct MockArtifactListResponse {
                     "file_size_bytes": 18145125
                 ],
                 [
-                    "title": "Investing.comDebug.ipa",
+                    "title": "Test.comDebug.ipa",
                     "artifact_type": "ios-ipa",
                     "artifact_meta": [
                         "info_type_id": "ios-ipa",
@@ -75,7 +75,7 @@ struct MockArtifactListResponse {
                         "install_type": "limited",
                         "app_info": [
                             "app_title": "INV DEV",
-                            "bundle_id": "com.investing.appDebug",
+                            "bundle_id": "com.Test.appDebug",
                             "version": "5.9.1",
                             "build_number": "915",
                             "min_OS_version": "11.0",
@@ -99,7 +99,7 @@ struct MockArtifactListResponse {
                     "file_size_bytes": 161505950
                 ],
                 [
-                    "title": "Investing.comDebug.xcarchive.zip",
+                    "title": "Test.comDebug.xcarchive.zip",
                     "artifact_type": "ios-xcarchive",
                     "artifact_meta": [
                         "info_type_id": "ios-xcarchive",
@@ -107,10 +107,10 @@ struct MockArtifactListResponse {
                         "test_device_id_list": nil,
                         "is_test_install_enabled": false,
                         "install_type": "none",
-                        "scheme": "Investing.comDebug",
+                        "scheme": "Test.comDebug",
                         "app_info": [
                             "app_title": "INV DEV",
-                            "bundle_id": "com.investing.appDebug",
+                            "bundle_id": "com.Test.appDebug",
                             "version": "5.9.1",
                             "build_number": "915",
                             "min_OS_version": "11.0",
@@ -133,7 +133,7 @@ struct MockArtifactListResponse {
                     "file_size_bytes": 1009
                 ],
                 [
-                    "title": "xcode-test-results-Investing.comDebug.html",
+                    "title": "xcode-test-results-TestDebug.html",
                     "artifact_type": "file",
                     "artifact_meta": nil,
                     "is_public_page_enabled": false,

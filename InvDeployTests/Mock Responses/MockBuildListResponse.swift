@@ -3,7 +3,7 @@
 //  InvDeployTests
 //
 //  Created by Yishai Roodyn on 26/04/2020.
-//  Copyright © 2020 Investing.com. All rights reserved.
+//  Copyright © 2020 Yishai Roodyn. All rights reserved.
 //
 
 import Foundation
@@ -41,7 +41,7 @@ struct MockBuildListResponse {
                     "pull_request_repository_url": "git@github.com:fusionmedialimited/iOSApp-New.git",
                     "pull_request_merge_branch": "pull/338/merge",
                     "pull_request_head_branch": "pull/338/head",
-                    "pull_request_author": "avrahams-investing",
+                    "pull_request_author": "Donald Trump",
                     "diff_url": "https://github.com/fusionmedialimited/iOSApp-New/pull/338.diff",
                     "commit_paths": nil,
                     "check_run_id": 611776717
@@ -81,7 +81,7 @@ struct MockBuildListResponse {
                     "pull_request_repository_url": "git@github.com:fusionmedialimited/iOSApp-New.git",
                     "pull_request_merge_branch": "pull/367/merge",
                     "pull_request_head_branch": "pull/367/head",
-                    "pull_request_author": "avrahams-investing",
+                    "pull_request_author": "Donald Trump",
                     "diff_url": "https://github.com/fusionmedialimited/iOSApp-New/pull/367.diff",
                     "commit_paths": nil,
                     "check_run_id": 611702875
@@ -149,7 +149,7 @@ struct MockBuildListResponse {
                     "pull_request_repository_url": "git@github.com:fusionmedialimited/iOSApp-New.git",
                     "pull_request_merge_branch": "pull/361/merge",
                     "pull_request_head_branch": "pull/361/head",
-                    "pull_request_author": "avrahams-investing",
+                    "pull_request_author": "Donald Trump",
                     "diff_url": "https://github.com/fusionmedialimited/iOSApp-New/pull/361.diff",
                     "commit_paths": nil,
                     "check_run_id": 611152631
@@ -189,7 +189,7 @@ struct MockBuildListResponse {
                     "pull_request_repository_url": "git@github.com:fusionmedialimited/iOSApp-New.git",
                     "pull_request_merge_branch": "pull/363/merge",
                     "pull_request_head_branch": "pull/363/head",
-                    "pull_request_author": "alina-yukon",
+                    "pull_request_author": "Donald Trump",
                     "diff_url": "https://github.com/fusionmedialimited/iOSApp-New/pull/363.diff",
                     "commit_paths": nil,
                     "check_run_id": 611113977

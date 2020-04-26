@@ -3,7 +3,7 @@
 //  InvDeploy
 //
 //  Created by Yishai Roodyn on 19/04/2020.
-//  Copyright © 2020 Investing.com. All rights reserved.
+//  Copyright © 2020 Yishai Roodyn. All rights reserved.
 //
 
 import Foundation

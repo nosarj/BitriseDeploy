@@ -78,7 +78,7 @@
 		863802CA244E27C000D11C2B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		863802CC244EC75500D11C2B /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		863802CE244F17C100D11C2B /* WorkflowFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowFilterViewController.swift; sourceTree = "<group>"; };
-		8656B510244C38C500AA11E2 /* InvDeploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvDeploy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8656B510244C38C500AA11E2 /* Bitrise Deploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bitrise Deploy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8656B513244C38C500AA11E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8656B515244C38C500AA11E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8656B517244C38C500AA11E2 /* BuildListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildListViewController.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		8656B511244C38C500AA11E2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8656B510244C38C500AA11E2 /* InvDeploy.app */,
+				8656B510244C38C500AA11E2 /* Bitrise Deploy.app */,
 				8656B526244C38C900AA11E2 /* InvDeployTests.xctest */,
 			);
 			name = Products;
@@ -178,11 +178,10 @@
 		8656B529244C38C900AA11E2 /* InvDeployTests */ = {
 			isa = PBXGroup;
 			children = (
-				866AD2E22455521E00E7385C /* Mock Responses */,
 				8656B52A244C38C900AA11E2 /* NetworkServiceTests.swift */,
 				8656B52C244C38C900AA11E2 /* Info.plist */,
-				866AD2DE245189FD00E7385C /* MockURLSession.swift */,
-				866AD2E02451C78C00E7385C /* MockURLSessionDataTask.swift */,
+				866AD2EB24555A1100E7385C /* Mock URLSession */,
+				866AD2E22455521E00E7385C /* Mock Responses */,
 			);
 			path = InvDeployTests;
 			sourceTree = "<group>";
@@ -244,6 +243,15 @@
 			path = "Mock Responses";
 			sourceTree = "<group>";
 		};
+		866AD2EB24555A1100E7385C /* Mock URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				866AD2DE245189FD00E7385C /* MockURLSession.swift */,
+				866AD2E02451C78C00E7385C /* MockURLSessionDataTask.swift */,
+			);
+			path = "Mock URLSession";
+			sourceTree = "<group>";
+		};
 		86FDC28D244C69A800F2F1D2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,7 +293,7 @@
 			);
 			name = InvDeploy;
 			productName = InvDeploy;
-			productReference = 8656B510244C38C500AA11E2 /* InvDeploy.app */;
+			productReference = 8656B510244C38C500AA11E2 /* Bitrise Deploy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8656B525244C38C900AA11E2 /* InvDeployTests */ = {
@@ -314,7 +322,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
-				ORGANIZATIONNAME = Investing.com;
+				ORGANIZATIONNAME = "Yishai R";
 				TargetAttributes = {
 					8656B50F244C38C500AA11E2 = {
 						CreatedOnToolsVersion = 11.4.1;
@@ -582,8 +590,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.investing.InvDeploy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitriseDeploy;
+				PRODUCT_NAME = "Bitrise Deploy";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -601,8 +609,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.investing.InvDeploy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bitriseDeploy;
+				PRODUCT_NAME = "Bitrise Deploy";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
