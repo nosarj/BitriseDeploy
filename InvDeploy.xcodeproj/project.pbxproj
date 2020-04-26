@@ -34,6 +34,10 @@
 		8656B538244C3B3700AA11E2 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8656B537244C3B3700AA11E2 /* Build.swift */; };
 		866AD2DF245189FD00E7385C /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2DE245189FD00E7385C /* MockURLSession.swift */; };
 		866AD2E12451C78C00E7385C /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2E02451C78C00E7385C /* MockURLSessionDataTask.swift */; };
+		866AD2E42455522F00E7385C /* MockArtifactResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2E32455522F00E7385C /* MockArtifactResponse.swift */; };
+		866AD2E62455563300E7385C /* MockWorkflowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2E52455563300E7385C /* MockWorkflowResponse.swift */; };
+		866AD2E82455574800E7385C /* MockBuildListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2E72455574800E7385C /* MockBuildListResponse.swift */; };
+		866AD2EA2455578600E7385C /* MockArtifactListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866AD2E92455578600E7385C /* MockArtifactListResponse.swift */; };
 		86850D2C244F66CA004F52F9 /* WorkflowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2B244F66CA004F52F9 /* WorkflowService.swift */; };
 		86850D2E244F679B004F52F9 /* WorkflowList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2D244F679B004F52F9 /* WorkflowList.swift */; };
 		86850D3024501313004F52F9 /* FilterMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86850D2F24501313004F52F9 /* FilterMenuViewController.swift */; };
@@ -89,6 +93,10 @@
 		8656B537244C3B3700AA11E2 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		866AD2DE245189FD00E7385C /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		866AD2E02451C78C00E7385C /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		866AD2E32455522F00E7385C /* MockArtifactResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtifactResponse.swift; sourceTree = "<group>"; };
+		866AD2E52455563300E7385C /* MockWorkflowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkflowResponse.swift; sourceTree = "<group>"; };
+		866AD2E72455574800E7385C /* MockBuildListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBuildListResponse.swift; sourceTree = "<group>"; };
+		866AD2E92455578600E7385C /* MockArtifactListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtifactListResponse.swift; sourceTree = "<group>"; };
 		86850D2B244F66CA004F52F9 /* WorkflowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowService.swift; sourceTree = "<group>"; };
 		86850D2D244F679B004F52F9 /* WorkflowList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowList.swift; sourceTree = "<group>"; };
 		86850D2F24501313004F52F9 /* FilterMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMenuViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 		8656B529244C38C900AA11E2 /* InvDeployTests */ = {
 			isa = PBXGroup;
 			children = (
+				866AD2E22455521E00E7385C /* Mock Responses */,
 				8656B52A244C38C900AA11E2 /* NetworkServiceTests.swift */,
 				8656B52C244C38C900AA11E2 /* Info.plist */,
 				866AD2DE245189FD00E7385C /* MockURLSession.swift */,
@@ -222,6 +231,17 @@
 				86FDC298244C760400F2F1D2 /* Cells */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		866AD2E22455521E00E7385C /* Mock Responses */ = {
+			isa = PBXGroup;
+			children = (
+				866AD2E32455522F00E7385C /* MockArtifactResponse.swift */,
+				866AD2E52455563300E7385C /* MockWorkflowResponse.swift */,
+				866AD2E72455574800E7385C /* MockBuildListResponse.swift */,
+				866AD2E92455578600E7385C /* MockArtifactListResponse.swift */,
+			);
+			path = "Mock Responses";
 			sourceTree = "<group>";
 		};
 		86FDC28D244C69A800F2F1D2 /* Services */ = {
@@ -388,9 +408,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866AD2E42455522F00E7385C /* MockArtifactResponse.swift in Sources */,
 				866AD2E12451C78C00E7385C /* MockURLSessionDataTask.swift in Sources */,
 				866AD2DF245189FD00E7385C /* MockURLSession.swift in Sources */,
+				866AD2EA2455578600E7385C /* MockArtifactListResponse.swift in Sources */,
+				866AD2E62455563300E7385C /* MockWorkflowResponse.swift in Sources */,
 				8656B52B244C38C900AA11E2 /* NetworkServiceTests.swift in Sources */,
+				866AD2E82455574800E7385C /* MockBuildListResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
