@@ -11,6 +11,7 @@ import Foundation
 enum BuildServiceError: Error {
     case RawResponseFail
     case noIPAFiles
+    case noPublicDownloadLink
 }
 
 struct BuildService {
@@ -35,10 +36,10 @@ struct BuildService {
                 for build in rawResponse.data {
                     self.downlaodBuildArtifact(build: build) { error in
                         if let error = error {
-                            if case BuildServiceError.noIPAFiles = error {
+                            switch error {
+                            case BuildServiceError.noPublicDownloadLink, BuildServiceError.noIPAFiles:
                                 builds.removeAll { $0 == build }
-                            } else {
-                                self.downloadGroup.leave()
+                            default:
                                 completion(.failure(error))
                             }
                         }
@@ -54,10 +55,9 @@ struct BuildService {
 
     private func downlaodBuildArtifact(build: Build, completion: @escaping (Error?) -> Void) {
         downloadGroup.enter()
-        NetworkService.downloadArtifactList(buildSlug: build.slug) { (result) in
+        NetworkService.downloadArtifactList(buildSlug: build.slug ?? "") { (result) in
             switch result {
             case .failure(let error):
-                self.downloadGroup.leave()
                 completion(error)
             case .success(let data):
                 guard let rawResponse = ArtifactRawServerResponse.decode(data: data) else {
@@ -67,10 +67,6 @@ struct BuildService {
                 }
                 self.downloadAppArtifact(artifacts: rawResponse.data, build: build) { (error) in
                     if let error = error {
-                        if case BuildServiceError.noIPAFiles = error {
-                        } else {
-                            self.downloadGroup.leave()
-                        }
                         completion(error)
                     }
                 }
@@ -84,11 +80,16 @@ struct BuildService {
             completion(BuildServiceError.noIPAFiles)
             return
         }
+        
         for artifact in artifacts {
             if artifact.artifactType == "ios-ipa" {
+                guard artifact.isPublicPageEnabled else {
+                    completion(BuildServiceError.noPublicDownloadLink)
+                    continue
+                }
                 downloadGroup.enter()
                 build.version = artifact.artifactMeta?.appInfo.version
-                NetworkService.downloadArtifact(buildSlug: build.slug, artifactSlug: artifact.slug) { (result) in
+                NetworkService.downloadArtifact(buildSlug: build.slug ?? "", artifactSlug: artifact.slug) { (result) in
                     switch result {
                     case .failure(let error):
                         self.downloadGroup.leave()
