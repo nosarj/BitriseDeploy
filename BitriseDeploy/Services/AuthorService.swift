@@ -12,7 +12,7 @@ enum AuthorService {
     static func configureAuthorList(builds: [Build]) -> [String] {
         var authorList = Set<String>()
         for build in builds {
-            if let author = build.originalBuildParams.pullRequestAuthor {
+            if let author = build.originalBuildParams?.pullRequestAuthor {
                 authorList.insert(author)
             }
         }

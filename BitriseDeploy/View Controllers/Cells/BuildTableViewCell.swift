@@ -32,13 +32,13 @@ class BuildTableViewCell: UITableViewCell {
 
     private func refresh() {
         versionLabel.text = build?.version
-        if let buildNumber = build?.buildNumber, let versionNumber = build?.version, let author = build?.originalBuildParams.pullRequestAuthor {
+        if let buildNumber = build?.buildNumber, let versionNumber = build?.version, let author = build?.originalBuildParams?.pullRequestAuthor {
             versionLabel.text = "\(versionNumber) (\(buildNumber)) - \(author)"
         }
         if let commitMessage = build?.commitMessage {
             commitMessageLabel.text = commitMessage
         } else {
-            commitMessageLabel.text = build?.originalBuildParams.branch
+            commitMessageLabel.text = build?.originalBuildParams?.branch
         }
     }
 

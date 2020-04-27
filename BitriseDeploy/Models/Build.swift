@@ -9,12 +9,12 @@
 import Foundation
 
 class Build: Decodable {
-    let slug: String
-    let buildNumber: Int
+    let slug: String?
+    let buildNumber: Int?
     let commitMessage: String?
     var version: String? = ""
     var app: App? = nil
-    let originalBuildParams: OriginalBuildParams
+    let originalBuildParams: OriginalBuildParams?
 
     enum CodingKeys: String, CodingKey {
         case slug
@@ -26,6 +26,13 @@ class Build: Decodable {
     static func decode(data: Data) -> Build? {
         let build = try? JSONDecoder().decode(Build.self, from: data)
         return build
+    }
+    
+    init(slug: String?, buildNumber: Int?, commitMessage: String?, originalBuildParams: OriginalBuildParams?) {
+        self.slug = slug
+        self.buildNumber = buildNumber
+        self.commitMessage = commitMessage
+        self.originalBuildParams = originalBuildParams
     }
 }
 

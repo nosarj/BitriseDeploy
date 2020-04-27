@@ -85,7 +85,7 @@ class BuildListViewController: UIViewController {
     private func filterBuilds() {
         filteredBuilds = builds
         for build in builds {
-            if let filteredAuthors = UserDefaults.standard.array(forKey: "filteredAuthors") as? [String], let author = build.originalBuildParams.pullRequestAuthor {
+            if let filteredAuthors = UserDefaults.standard.array(forKey: "filteredAuthors") as? [String], let author = build.originalBuildParams?.pullRequestAuthor {
                 if !filteredAuthors.contains(author) {
                     filteredBuilds.removeAll { $0 == build }
                 }
