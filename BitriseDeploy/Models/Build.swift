@@ -15,12 +15,14 @@ class Build: Decodable {
     var version: String? = ""
     var app: App? = nil
     let originalBuildParams: OriginalBuildParams?
+    var branch: String?
 
     enum CodingKeys: String, CodingKey {
         case slug
         case buildNumber = "build_number"
         case commitMessage = "commit_message"
         case originalBuildParams = "original_build_params"
+        case branch
     }
 
     static func decode(data: Data) -> Build? {
@@ -28,11 +30,12 @@ class Build: Decodable {
         return build
     }
     
-    init(slug: String?, buildNumber: Int?, commitMessage: String?, originalBuildParams: OriginalBuildParams?) {
+    init(slug: String?, buildNumber: Int?, commitMessage: String?, originalBuildParams: OriginalBuildParams?, branch: String?) {
         self.slug = slug
         self.buildNumber = buildNumber
         self.commitMessage = commitMessage
         self.originalBuildParams = originalBuildParams
+        self.branch = branch
     }
 }
 

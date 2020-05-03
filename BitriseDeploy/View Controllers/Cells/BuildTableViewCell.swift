@@ -8,43 +8,49 @@
 
 import UIKit
 
-protocol BuildTableViewCellDelegate: class {
-    func buildTableViewCellInstallPageButtonDidTap(build: Build)
-}
-
 class BuildTableViewCell: UITableViewCell {
 
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var commitMessageLabel: UILabel!
-    @IBOutlet weak var installPageButton: UIButton!
-
-    weak var delegate: BuildTableViewCellDelegate?
-
-    override func awakeFromNib() {
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .bold, scale: .medium)
-        let installIcon = UIImage(systemName: "square.and.arrow.down.fill", withConfiguration: largeConfig)
-        installPageButton.setImage(installIcon, for: .normal)
-    }
-
+    @IBOutlet weak var buildNumberView: UIView!
+    @IBOutlet weak var buildNumberLabel: UILabel!
+    @IBOutlet weak var authorView: UIView!
+    @IBOutlet weak var authorIcon: UIImageView!
+    @IBOutlet weak var authorLabel: UILabel!
+    
     var build: Build? { didSet {
         refresh()
         }}
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        applyStyling()
+    }
+    
+    private func applyStyling() {
+        setBuildNumberStyling()
+    }
+    
+    private func setBuildNumberStyling() {
+        buildNumberView.layer.borderColor = UIColor.link.cgColor
+        buildNumberView.layer.borderWidth = 1.5
+        buildNumberView.layer.cornerRadius = 8
+    }
 
     private func refresh() {
         versionLabel.text = build?.version
-        if let buildNumber = build?.buildNumber, let versionNumber = build?.version, let author = build?.originalBuildParams?.pullRequestAuthor {
-            versionLabel.text = "\(versionNumber) (\(buildNumber)) - \(author)"
+        if let versionNumber = build?.version {
+            versionLabel.text = "\(versionNumber)"
         }
-        if let commitMessage = build?.commitMessage {
-            commitMessageLabel.text = commitMessage
+        if let buildNumber = build?.buildNumber {
+            buildNumberLabel.text = " #\(buildNumber) "
+        }
+        if let author = build?.originalBuildParams?.pullRequestAuthor {
+            authorLabel.text = author
+            authorView.isHidden = false
         } else {
-            commitMessageLabel.text = build?.originalBuildParams?.branch
+            authorView.isHidden = true
         }
-    }
-
-    @IBAction func intallPageButtonTapped(_ sender: Any) {
-        if let build = build {
-            delegate?.buildTableViewCellInstallPageButtonDidTap(build: build)
-        }
+        commitMessageLabel.text = build?.branch
     }
 }

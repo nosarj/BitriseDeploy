@@ -45,6 +45,7 @@ class BuildListViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 121
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "BuildTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "BuildCell")
         tableView.addSubview(refreshControl)
@@ -117,14 +118,19 @@ extension BuildListViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Unable to dequeue Build Cell")
         }
         cell.build = filteredBuilds[indexPath.row]
-        cell.delegate = self
+//        cell.delegate = self
         return cell
     }
-}
-
-extension BuildListViewController: BuildTableViewCellDelegate {
-    func buildTableViewCellInstallPageButtonDidTap(build: Build) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let build = builds[indexPath.row]
         guard let url = URL(string: build.app?.publicInstallPageURL ?? "") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
+
+//extension BuildListViewController: BuildTableViewCellDelegate {
+//    func buildTableViewCellInstallPageButtonDidTap(build: Build) {
+//
+//    }
+//}
