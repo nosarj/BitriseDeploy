@@ -13,12 +13,14 @@ class Build: Decodable {
     let buildNumber: Int?
     let commitMessage: String?
     var version: String? = ""
+    var triggeredWorkflow: String?
     var app: AppArtifact? = nil
     let originalBuildParams: OriginalBuildParams?
     var branch: String?
 
     enum CodingKeys: String, CodingKey {
         case slug
+        case triggeredWorkflow = "triggered_workflow"
         case buildNumber = "build_number"
         case commitMessage = "commit_message"
         case originalBuildParams = "original_build_params"

@@ -12,9 +12,10 @@ class BuildTableViewCell: UITableViewCell {
 
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var commitMessageLabel: UILabel!
+    @IBOutlet weak var branchNameLabel: UILabel!
     @IBOutlet weak var buildNumberView: UIView!
     @IBOutlet weak var buildNumberLabel: UILabel!
+    @IBOutlet weak var workflowLabel: UILabel!
     @IBOutlet weak var authorView: UIView!
     @IBOutlet weak var authorIcon: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
@@ -55,7 +56,8 @@ class BuildTableViewCell: UITableViewCell {
         } else {
             authorView.isHidden = true
         }
-        commitMessageLabel.text = build?.branch
+        workflowLabel.text = build?.triggeredWorkflow
+        branchNameLabel.text = build?.branch
     }
     
     private func setAvatarImage() {
