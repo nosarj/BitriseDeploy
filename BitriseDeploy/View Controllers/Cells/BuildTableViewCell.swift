@@ -11,6 +11,7 @@ import UIKit
 class BuildTableViewCell: UITableViewCell {
 
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var commitMessageLabel: UILabel!
     @IBOutlet weak var buildNumberView: UIView!
     @IBOutlet weak var buildNumberLabel: UILabel!
@@ -20,6 +21,9 @@ class BuildTableViewCell: UITableViewCell {
     
     var build: Build? { didSet {
         refresh()
+        }}
+    var avatarURL: String? { didSet {
+        setAvatarImage()
         }}
     
     override func awakeFromNib() {
@@ -52,5 +56,10 @@ class BuildTableViewCell: UITableViewCell {
             authorView.isHidden = true
         }
         commitMessageLabel.text = build?.branch
+    }
+    
+    private func setAvatarImage() {
+        guard let avatarURL = URL(string: avatarURL ?? "") else { return }
+        avatarImageView.setImage(with: avatarURL, placeholder: UIImage(systemName: ""))
     }
 }

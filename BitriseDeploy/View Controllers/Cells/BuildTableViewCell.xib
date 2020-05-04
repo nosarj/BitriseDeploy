@@ -20,25 +20,34 @@
                         <rect key="frame" x="12" y="16" width="247" height="117"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtv-jR-pP2">
-                                <rect key="frame" x="0.0" y="0.0" width="214.5" height="28.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="214.5" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSo-wC-ng7">
-                                        <rect key="frame" x="0.0" y="0.0" width="214.5" height="28.5"/>
+                                        <rect key="frame" x="26" y="0.0" width="188.5" height="50"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WdS-ye-FEs">
+                                        <rect key="frame" x="0.0" y="15" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="OMl-E8-hlj"/>
+                                            <constraint firstAttribute="height" constant="20" id="c6L-qD-w0V"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="pSo-wC-ng7" firstAttribute="leading" secondItem="WdS-ye-FEs" secondAttribute="trailing" constant="6" id="8U2-vk-jif"/>
                                     <constraint firstItem="pSo-wC-ng7" firstAttribute="top" secondItem="gtv-jR-pP2" secondAttribute="top" id="C2e-Gb-DHR"/>
-                                    <constraint firstItem="pSo-wC-ng7" firstAttribute="leading" secondItem="gtv-jR-pP2" secondAttribute="leading" id="KWd-j7-AC9"/>
+                                    <constraint firstItem="WdS-ye-FEs" firstAttribute="centerY" secondItem="gtv-jR-pP2" secondAttribute="centerY" id="Cfy-Z0-ITb"/>
                                     <constraint firstAttribute="trailing" secondItem="pSo-wC-ng7" secondAttribute="trailing" id="Vmf-WV-cdB"/>
                                     <constraint firstAttribute="bottom" secondItem="pSo-wC-ng7" secondAttribute="bottom" id="nSb-1E-bct"/>
+                                    <constraint firstItem="WdS-ye-FEs" firstAttribute="leading" secondItem="gtv-jR-pP2" secondAttribute="leading" id="udF-rL-6Pe"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0T-75-fHh">
-                                <rect key="frame" x="0.0" y="40.5" width="129" height="14.5"/>
+                                <rect key="frame" x="0.0" y="62" width="129" height="14.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="GitBranchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yhc-6S-DN3">
                                         <rect key="frame" x="0.0" y="-2.5" width="20" height="20"/>
@@ -66,10 +75,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toY-Ge-N6G">
-                                <rect key="frame" x="0.0" y="67" width="129" height="50"/>
+                                <rect key="frame" x="0.0" y="88.5" width="129" height="28.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oxU-oW-abd">
-                                        <rect key="frame" x="0.0" y="16.5" width="20" height="17.5"/>
+                                        <rect key="frame" x="0.0" y="6" width="20" height="17.5"/>
                                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="WFK-gR-cgx"/>
@@ -77,7 +86,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-lo-6Fe">
-                                        <rect key="frame" x="26" y="0.0" width="103" height="50"/>
+                                        <rect key="frame" x="26" y="0.0" width="103" height="28.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -128,6 +137,7 @@
                 <outlet property="authorIcon" destination="oxU-oW-abd" id="17W-lI-Zdp"/>
                 <outlet property="authorLabel" destination="5Of-lo-6Fe" id="t6R-Hm-1Z9"/>
                 <outlet property="authorView" destination="toY-Ge-N6G" id="lgb-Sx-bPp"/>
+                <outlet property="avatarImageView" destination="WdS-ye-FEs" id="AXz-M2-Ve4"/>
                 <outlet property="buildNumberLabel" destination="4cp-CD-BXz" id="njP-0M-nj0"/>
                 <outlet property="buildNumberView" destination="qtv-oN-r2r" id="4VG-rK-Hds"/>
                 <outlet property="commitMessageLabel" destination="Hts-lh-LJx" id="qNB-p0-OiH"/>

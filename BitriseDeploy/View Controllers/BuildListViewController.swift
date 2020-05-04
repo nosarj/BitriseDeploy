@@ -109,6 +109,7 @@ extension BuildListViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Unable to dequeue Build Cell")
         }
         cell.build = filteredBuilds[indexPath.row]
+        cell.avatarURL = app?.avatarURL
         return cell
     }
     
