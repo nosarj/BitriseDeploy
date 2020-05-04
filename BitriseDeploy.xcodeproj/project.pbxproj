@@ -642,6 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitriseDeploy;
 				PRODUCT_NAME = "Bitrise Deploy";
 				SWIFT_VERSION = 5.0;
@@ -661,6 +662,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bitriseDeploy;
 				PRODUCT_NAME = "Bitrise Deploy";
 				SWIFT_VERSION = 5.0;
