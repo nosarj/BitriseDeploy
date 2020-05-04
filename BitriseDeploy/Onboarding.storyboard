@@ -10,7 +10,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="99X-K0-Wdp">
             <objects>
-                <viewController id="lPe-dk-FWE" customClass="OnboardingViewController" customModule="InvDeploy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lPe-dk-FWE" customClass="OnboardingViewController" customModule="Bitrise_Deploy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l3F-Hs-5NB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYs-vC-I42">
                                 <rect key="frame" x="187.5" y="497" width="39" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="lPe-dk-FWE" eventType="touchUpInside" id="hSy-da-K1H"/>
                                 </connections>
@@ -34,24 +36,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="App ID" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZPF-Xr-edV">
-                                <rect key="frame" x="12" y="312.5" width="390" height="34"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJT-m2-hVN">
-                                <rect key="frame" x="32" y="260" width="350" height="20.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ZPF-Xr-edV" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="12" id="2tY-VI-XJX"/>
-                            <constraint firstItem="ZPF-Xr-edV" firstAttribute="top" secondItem="OJT-m2-hVN" secondAttribute="bottom" constant="32" id="3Pk-7e-wn8"/>
-                            <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="ZPF-Xr-edV" secondAttribute="trailing" constant="12" id="4kN-WK-scZ"/>
-                            <constraint firstItem="OJT-m2-hVN" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="32" id="6Zz-NX-U5d"/>
                             <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="b7S-n9-7VQ" secondAttribute="trailing" constant="12" id="8a2-Ed-CJV"/>
                             <constraint firstItem="BhP-wU-8Hn" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="32" id="OfG-MN-sPJ"/>
                             <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="BhP-wU-8Hn" secondAttribute="trailing" constant="32" id="VtG-8s-h6s"/>
@@ -60,9 +47,7 @@
                             <constraint firstItem="b7S-n9-7VQ" firstAttribute="centerY" secondItem="l3F-Hs-5NB" secondAttribute="centerY" id="gmI-mp-bcd"/>
                             <constraint firstItem="DYs-vC-I42" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="jrS-5M-kb9"/>
                             <constraint firstItem="BhP-wU-8Hn" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="nKy-bH-ASw"/>
-                            <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="OJT-m2-hVN" secondAttribute="trailing" constant="32" id="oHO-Pn-4ig"/>
                             <constraint firstItem="b7S-n9-7VQ" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="sGW-pG-hnK"/>
-                            <constraint firstItem="BhP-wU-8Hn" firstAttribute="top" secondItem="ZPF-Xr-edV" secondAttribute="bottom" constant="32" id="tAK-13-KBk"/>
                             <constraint firstItem="b7S-n9-7VQ" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="12" id="w9m-Zc-yWw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v7Y-OC-lMD"/>
@@ -70,10 +55,8 @@
                     <connections>
                         <outlet property="apiKeyTextField" destination="b7S-n9-7VQ" id="m9T-6a-43f"/>
                         <outlet property="apiKeyTitleLabel" destination="BhP-wU-8Hn" id="vlP-UO-0L9"/>
-                        <outlet property="appIDLabel" destination="OJT-m2-hVN" id="xX8-i4-TEk"/>
-                        <outlet property="appIDTextField" destination="ZPF-Xr-edV" id="nwS-JY-DDw"/>
                         <outlet property="doneButton" destination="DYs-vC-I42" id="udc-I1-WTk"/>
-                        <segue destination="wm4-Sv-QhJ" kind="unwind" identifier="unwindToBuildListWithRefresh" unwindAction="unwindToBuildListWithRefreshWithSegue:" id="h3T-Pj-A9d"/>
+                        <segue destination="wm4-Sv-QhJ" kind="unwind" identifier="unwindToAppListWithRefresh" unwindAction="unwindToAppListWithRefreshWithSegue:" id="qYW-A0-vTY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxD-C6-i2Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

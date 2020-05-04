@@ -12,6 +12,7 @@ class WorkflowFilterViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
+    var app: App?
     var workflowArray: [String] = []
     var selectedWorkflow: String?
 
@@ -36,7 +37,8 @@ class WorkflowFilterViewController: UIViewController {
     
     @objc func downloadWorkflows() {
         refreshControl.beginRefreshing()
-        WorkflowService.downloadWorkflows { (result) in
+        guard let appSlug = app?.slug else { return }
+        WorkflowService.downloadWorkflows(appSlug: appSlug) { (result) in
             switch result {
             case .failure( let error):
                 self.showErrorAlert(error)

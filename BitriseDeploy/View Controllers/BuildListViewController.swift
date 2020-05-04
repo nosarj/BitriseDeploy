@@ -13,6 +13,7 @@ class BuildListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
+    var app: App?
     var builds = [Build]()
     var filteredBuilds: [Build] = []
 
@@ -20,17 +21,14 @@ class BuildListViewController: UIViewController {
         super.viewDidLoad()
         applyStyling()
         configureTableView()
-        showOnboardingIfRequired()
+        downloadBuilds()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? FilterMenuViewController else { return }
         let authorList = Array(AuthorService.configureAuthorList(builds: builds))
         destination.authorList = authorList
-    }
-
-    @IBAction func unwindToBuildListWithRefresh(segue:UIStoryboardSegue) {
-        manualRefresh()
+        destination.app = app
     }
     
     @IBAction func unwindToBuildListFromAuthorFilter(segue:UIStoryboardSegue) {
@@ -52,14 +50,6 @@ class BuildListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(downloadBuilds), for: .valueChanged)
     }
 
-    private func showOnboardingIfRequired() {
-        if (try? KeychainService.loadPassword()) == nil {
-            performSegue(withIdentifier: "OnboardingSegue", sender: self)
-        } else {
-            downloadBuilds()
-        }
-    }
-
     private func manualRefresh() {
         downloadBuilds()
         let offsetPoint = CGPoint.init(x: 0, y: -refreshControl.frame.size.height)
@@ -68,7 +58,8 @@ class BuildListViewController: UIViewController {
 
     @objc private func downloadBuilds() {
         refreshControl.beginRefreshing()
-        BuildService().downloadBuilds { (result) in
+        guard let appSlug = app?.slug else { return }
+        BuildService().downloadBuilds(appSlug: appSlug) { (result) in
             switch result {
             case .failure( let error):
                 self.showErrorAlert(error)
@@ -118,7 +109,6 @@ extension BuildListViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Unable to dequeue Build Cell")
         }
         cell.build = filteredBuilds[indexPath.row]
-//        cell.delegate = self
         return cell
     }
     
@@ -128,9 +118,3 @@ extension BuildListViewController: UITableViewDelegate, UITableViewDataSource {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
-
-//extension BuildListViewController: BuildTableViewCellDelegate {
-//    func buildTableViewCellInstallPageButtonDidTap(build: Build) {
-//
-//    }
-//}

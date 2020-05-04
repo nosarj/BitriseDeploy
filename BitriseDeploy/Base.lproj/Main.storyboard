@@ -16,12 +16,45 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="a26-8d-6bw"/>
+                        <segue destination="ulG-4z-HYF" kind="relationship" relationship="rootViewController" id="X5j-dP-mdN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vs0-Ps-fxj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-712" y="114"/>
+            <point key="canvasLocation" x="-1461" y="114"/>
+        </scene>
+        <!--App List View Controller-->
+        <scene sceneID="l37-Cv-ueq">
+            <objects>
+                <viewController id="ulG-4z-HYF" customClass="AppListViewController" customModule="Bitrise_Deploy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="etd-ny-TaQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ywy-PB-fd4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ala-Gy-4aX" firstAttribute="bottom" secondItem="Ywy-PB-fd4" secondAttribute="bottom" id="CjV-C4-0pK"/>
+                            <constraint firstItem="Ywy-PB-fd4" firstAttribute="leading" secondItem="Ala-Gy-4aX" secondAttribute="leading" id="fIc-ql-ho3"/>
+                            <constraint firstItem="Ala-Gy-4aX" firstAttribute="trailing" secondItem="Ywy-PB-fd4" secondAttribute="trailing" id="iiQ-MC-6bJ"/>
+                            <constraint firstItem="Ywy-PB-fd4" firstAttribute="top" secondItem="Ala-Gy-4aX" secondAttribute="top" id="uzJ-78-PyI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ala-Gy-4aX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FDC-xV-Wfg"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ywy-PB-fd4" id="ssi-6E-BqT"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="BuildListSegue" id="tDG-Lb-i8n"/>
+                        <segue destination="lZ1-zA-0Pi" kind="presentation" identifier="OnboardingSegue" modalPresentationStyle="fullScreen" id="8Nt-eB-VkA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xs2-ao-93w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-671" y="114"/>
         </scene>
         <!--Onboarding-->
         <scene sceneID="qmy-9m-MmS">
@@ -29,12 +62,12 @@
                 <viewControllerPlaceholder storyboardName="Onboarding" id="lZ1-zA-0Pi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Do-IN-byI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="179"/>
+            <point key="canvasLocation" x="-670" y="529"/>
         </scene>
         <!--Build List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BuildListViewController" customModule="InvDeploy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BuildListViewController" customModule="Bitrise_Deploy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +96,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="nFw-h0-zCY" id="WVH-6r-Xqd"/>
-                        <segue destination="lZ1-zA-0Pi" kind="presentation" identifier="OnboardingSegue" modalPresentationStyle="fullScreen" id="u7s-BS-5m8"/>
                         <segue destination="VFf-TR-tXJ" kind="show" identifier="FilterMenuSegue" id="jHA-hL-fLP"/>
                     </connections>
                 </viewController>
@@ -79,7 +111,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cUG-Wk-Woc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="688" y="71"/>
+            <point key="canvasLocation" x="673" y="114"/>
         </scene>
     </scenes>
     <resources>

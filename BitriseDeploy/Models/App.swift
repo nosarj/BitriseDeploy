@@ -2,27 +2,29 @@
 //  App.swift
 //  BitriseDeploy
 //
-//  Created by Yishai Roodyn on 19/04/2020.
-//  Copyright © 2020 Yishai Roodyn. All rights reserved.
+//  Created by Yishai Roodyn on 03/05/2020.
+//  Copyright © 2020 Yishai R. All rights reserved.
 //
 
 import Foundation
 
-struct App: Decodable {
-    let title, artifactType: String
-    let expiringDownloadURL: String
-    let isPublicPageEnabled: Bool
-    let slug: String
-    let publicInstallPageURL: String
-    let fileSizeBytes: Int
+struct App: Codable {
+    let avatarURL: String
+    let isDisabled, isPublic: Bool
+    let projectType, provider, repoOwner, repoSlug: String
+    let repoURL, slug: String
+    let status: Int
+    let title: String
 
     enum CodingKeys: String, CodingKey {
-        case title
-        case artifactType = "artifact_type"
-        case expiringDownloadURL = "expiring_download_url"
-        case isPublicPageEnabled = "is_public_page_enabled"
-        case slug
-        case publicInstallPageURL = "public_install_page_url"
-        case fileSizeBytes = "file_size_bytes"
+        case avatarURL = "avatar_url"
+        case isDisabled = "is_disabled"
+        case isPublic = "is_public"
+        case projectType = "project_type"
+        case provider
+        case repoOwner = "repo_owner"
+        case repoSlug = "repo_slug"
+        case repoURL = "repo_url"
+        case slug, status, title
     }
 }

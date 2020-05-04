@@ -10,7 +10,7 @@ import Foundation
 
 struct BuildRawServerResponse: Decodable {
 
-    var paging: BuildPaging
+    var paging: Paging
     var data: [Build]
 
     enum CodingKeys: String, CodingKey {

@@ -14,14 +14,27 @@ enum NetworkError: Error {
     case Unknown
     case UnAuthorized
     case BadData
+    case statusCode(statusCode: Int)
 }
 
 enum NetworkService {
     
-    private static var appID: String { UserDefaults.standard.string(forKey: "AppID") ?? "" }
+    static func downloadAppsList(urlSession: URLSession = URLSession(configuration: .default), completion: @escaping (Result<Data,Error>)->Void) {
+        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps") else { return }
+        var request = URLRequest(url: url)
+        addAuthorizationHeader(&request)
+        getRequest(request, session: urlSession) { (result)  in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                completion(.success(data))
+            }
+        }
+    }
     
-    static func downloadBuilds(urlSession: URLSession = URLSession(configuration: .default), completion: @escaping (Result<Data,Error>)->Void) {
-        guard var urlComponents = URLComponents(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/builds") else { return }
+    static func downloadBuilds(appSlug: String, urlSession: URLSession = URLSession(configuration: .default), completion: @escaping (Result<Data,Error>)->Void) {
+        guard var urlComponents = URLComponents(string: "https://api.bitrise.io/v0.1/apps/\(appSlug)/builds") else { return }
         urlComponents.queryItems = [
             URLQueryItem(name: "limit", value: "25"),
             URLQueryItem(name: "status", value: "1")
@@ -42,8 +55,8 @@ enum NetworkService {
         }
     }
 
-    static func downloadArtifactList(urlSession: URLSession = URLSession(configuration: .default), buildSlug: String, completion: @escaping (Result<Data,Error>)->Void) {
-        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/builds/\(buildSlug)/artifacts") else { return }
+    static func downloadArtifactList(appSlug: String, urlSession: URLSession = URLSession(configuration: .default), buildSlug: String, completion: @escaping (Result<Data,Error>)->Void) {
+        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(appSlug)/builds/\(buildSlug)/artifacts") else { return }
         var request = URLRequest(url: url)
         addAuthorizationHeader(&request)
         getRequest(request, session: urlSession) { (result)  in
@@ -56,8 +69,8 @@ enum NetworkService {
         }
     }
 
-    static func downloadArtifact(urlSession: URLSession = URLSession(configuration: .default), buildSlug: String, artifactSlug: String, completion: @escaping (Result<Data,Error>)->Void) {
-        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/builds/\(buildSlug)/artifacts/\(artifactSlug)") else { return }
+    static func downloadArtifact(appSlug: String, urlSession: URLSession = URLSession(configuration: .default), buildSlug: String, artifactSlug: String, completion: @escaping (Result<Data,Error>)->Void) {
+        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(appSlug)/builds/\(buildSlug)/artifacts/\(artifactSlug)") else { return }
         var request = URLRequest(url: url)
         addAuthorizationHeader(&request)
         getRequest(request, session: urlSession) { (result)  in
@@ -70,8 +83,8 @@ enum NetworkService {
         }
     }
     
-    static func downloadWorkflows(urlSession: URLSession = URLSession(configuration: .default), completion: @escaping (Result<Data,Error>)->Void) {
-        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(NetworkService.appID)/build-workflows") else { return }
+    static func downloadWorkflows(appSlug: String, urlSession: URLSession = URLSession(configuration: .default), completion: @escaping (Result<Data,Error>)->Void) {
+        guard let url = URL(string: "https://api.bitrise.io/v0.1/apps/\(appSlug)/build-workflows") else { return }
         var request = URLRequest(url: url)
         addAuthorizationHeader(&request)
         getRequest(request, session: urlSession) { (result)  in

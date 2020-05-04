@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BuildPaging: Decodable {
+struct Paging: Decodable {
     let totalItemCount, pageItemLimit: Int
     let next: String?
 

@@ -10,8 +10,8 @@ import Foundation
 
 enum WorkflowService {
     
-    static func downloadWorkflows(completion: @escaping (Result<[String], Error>) -> Void) {
-        NetworkService.downloadWorkflows { (result) in
+    static func downloadWorkflows(appSlug: String, completion: @escaping (Result<[String], Error>) -> Void) {
+        NetworkService.downloadWorkflows(appSlug: appSlug) { (result) in
             switch result {
             case .failure(let error):
                 completion(.failure(error))

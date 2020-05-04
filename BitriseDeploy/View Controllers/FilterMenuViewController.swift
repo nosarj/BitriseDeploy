@@ -11,6 +11,7 @@ import UIKit
 class FilterMenuViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var app: App?
     var authorList: [String] = []
     
     override func viewDidLoad() {
@@ -20,8 +21,11 @@ class FilterMenuViewController: UIViewController {
     }
     
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            guard let destination = segue.destination as? AuthorFilterViewController else { return }
-            destination.authorList = authorList
+            if let destination = segue.destination as? AuthorFilterViewController {
+                destination.authorList = authorList
+            } else if let destination = segue.destination as? WorkflowFilterViewController {
+                destination.app = app
+            }
         }
     
     private func applyStyling() {

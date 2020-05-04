@@ -10,8 +10,6 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
 
-    @IBOutlet weak var appIDLabel: UILabel!
-    @IBOutlet weak var appIDTextField: UITextField!
     @IBOutlet weak var apiKeyTitleLabel: UILabel!
     @IBOutlet weak var apiKeyTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
@@ -24,16 +22,13 @@ class OnboardingViewController: UIViewController {
     private func applyStyling() {
         apiKeyTitleLabel.text = "Please enter the Bitrise API key here. It will be stored securely in the app."
         apiKeyTextField.delegate = self
-        appIDLabel.text = "Please enter the Bitrise App ID here."
-        appIDTextField.delegate = self
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         guard let apiKey = apiKeyTextField.text else { return }
-        if OnboardingService.validateAPIKey(apiKey), let appID = appIDTextField.text, appID.count > 0 {
+        if OnboardingService.validateAPIKey(apiKey) {
             KeychainService.savePassword(apiKey)
-            UserDefaults.standard.setValue(appIDTextField.text, forKey: "AppID")
-            performSegue(withIdentifier: "unwindToBuildListWithRefresh", sender: self)
+            performSegue(withIdentifier: "unwindToAppListWithRefresh", sender: self)
         } else {
             showValidationAlert()
         }

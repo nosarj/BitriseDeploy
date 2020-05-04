@@ -13,7 +13,7 @@ class Build: Decodable {
     let buildNumber: Int?
     let commitMessage: String?
     var version: String? = ""
-    var app: App? = nil
+    var app: AppArtifact? = nil
     let originalBuildParams: OriginalBuildParams?
     var branch: String?
 
