@@ -48,8 +48,10 @@ extension FilterMenuViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "basicStyle") else { return UITableViewCell() }
         if indexPath.row == 1 {
             cell.textLabel?.text = "Pull Request Authors"
+            cell.detailTextLabel?.text = ""
         } else {
             cell.textLabel?.text = "Workflows"
+            cell.detailTextLabel?.text = UserDefaults.standard.string(forKey: "selectedWorkflow")
         }
         cell.accessoryType = .disclosureIndicator
         return cell

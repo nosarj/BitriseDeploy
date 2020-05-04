@@ -31,7 +31,11 @@ class BuildListViewController: UIViewController {
         destination.app = app
     }
     
-    @IBAction func unwindToBuildListFromAuthorFilter(segue:UIStoryboardSegue) {
+    @IBAction func unwindToBuildListWithRefresh(segue: UIStoryboardSegue) {
+         manualRefresh()
+     }
+    
+    @IBAction func unwindToBuildListFromAuthorFilter(segue: UIStoryboardSegue) {
         filterBuilds()
         tableView.reloadData()
     }
