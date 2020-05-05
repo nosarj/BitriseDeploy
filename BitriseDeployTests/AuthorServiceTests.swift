@@ -26,11 +26,11 @@ class AuthorServiceTests: XCTestCase {
     }
 
     func createBuilds() {
-        build1 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams())
-        build2 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams())
-        build3 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams())
-        build4 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams(author: "Boris"))
-        build5 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams(author: "Macron"))
+        build1 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams(), branch: "master")
+        build2 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams(), branch: "master")
+        build3 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams(), branch: "master")
+        build4 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams(author: "Boris"), branch: "master")
+        build5 = Build(slug: "12345", buildNumber: 1, commitMessage: "TEST", originalBuildParams: createOriginalBuildParams(author: "Macron"), branch: "master")
     }
     
     func createOriginalBuildParams(author: String = "Donald Trump") -> OriginalBuildParams {

@@ -53,6 +53,7 @@
 		86D6785D245FD96400B07358 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D6785B245FD96400B07358 /* AppTableViewCell.swift */; };
 		86D6785E245FD96400B07358 /* AppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86D6785C245FD96400B07358 /* AppTableViewCell.xib */; };
 		86D67861245FDD1000B07358 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D67860245FDD1000B07358 /* UIImageView.swift */; };
+		86D678632461328100B07358 /* MockAppListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D678622461328100B07358 /* MockAppListResponse.swift */; };
 		86FDC28F244C69BE00F2F1D2 /* BuildService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC28E244C69BE00F2F1D2 /* BuildService.swift */; };
 		86FDC291244C6CC400F2F1D2 /* BuildRawServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC290244C6CC400F2F1D2 /* BuildRawServerResponse.swift */; };
 		86FDC293244C6FE200F2F1D2 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86FDC292244C6FE200F2F1D2 /* Paging.swift */; };
@@ -121,6 +122,7 @@
 		86D6785B245FD96400B07358 /* AppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
 		86D6785C245FD96400B07358 /* AppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppTableViewCell.xib; sourceTree = "<group>"; };
 		86D67860245FDD1000B07358 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		86D678622461328100B07358 /* MockAppListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppListResponse.swift; sourceTree = "<group>"; };
 		86FDC28E244C69BE00F2F1D2 /* BuildService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildService.swift; sourceTree = "<group>"; };
 		86FDC290244C6CC400F2F1D2 /* BuildRawServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRawServerResponse.swift; sourceTree = "<group>"; };
 		86FDC292244C6FE200F2F1D2 /* Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				866AD2E52455563300E7385C /* MockWorkflowResponse.swift */,
 				866AD2E72455574800E7385C /* MockBuildListResponse.swift */,
 				866AD2E92455578600E7385C /* MockArtifactListResponse.swift */,
+				86D678622461328100B07358 /* MockAppListResponse.swift */,
 			);
 			path = "Mock Responses";
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86D678632461328100B07358 /* MockAppListResponse.swift in Sources */,
 				866AD2E42455522F00E7385C /* MockArtifactResponse.swift in Sources */,
 				866AD2E12451C78C00E7385C /* MockURLSessionDataTask.swift in Sources */,
 				866AD2F12456BC4A00E7385C /* AuthorServiceTests.swift in Sources */,

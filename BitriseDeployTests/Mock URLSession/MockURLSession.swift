@@ -27,6 +27,9 @@ class MockURLSession: URLSession {
         } else if url.contains("WorkflowTest") {
             let data = try? JSONSerialization.data(withJSONObject: MockWorkflowResponse.mockWorkflowResponse, options: .fragmentsAllowed)
             completionHandler(data, urlResponse, nil)
+        } else {
+            let data = try? JSONSerialization.data(withJSONObject: MockAppListResponse.mockAppListJSON, options: .fragmentsAllowed)
+            completionHandler(data, urlResponse, nil)
         }
         return URLSessionDataTaskMock { completionHandler(nil, urlResponse, nil) }
     }

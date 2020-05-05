@@ -22,9 +22,8 @@ class NetworkServiceTests: XCTestCase {
     }
     
     func testDownloadBuildList() {
-        UserDefaults.standard.set("BuildListTest", forKey: "AppID")
         let buildListExpectation = expectation(description: "BuildDownload")
-        NetworkService.downloadBuilds(urlSession: mockURLSession) { (result) in
+        NetworkService.downloadBuilds(appSlug: "BuildListTest", urlSession: mockURLSession) { (result) in
             switch result {
             case .success(let data):
                 guard let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyHashable] else {
@@ -43,9 +42,8 @@ class NetworkServiceTests: XCTestCase {
     }
     
     func testDownloadArtifactList() {
-        UserDefaults.standard.set("ArtifactListTest", forKey: "AppID")
         let buildListExpectation = expectation(description: "BuildDownload")
-        NetworkService.downloadArtifactList(urlSession: mockURLSession, buildSlug: "6a207b1bc7a8501b") { (result) in
+        NetworkService.downloadArtifactList(appSlug: "ArtifactListTest", urlSession: mockURLSession, buildSlug: "6a207b1bc7a8501b") { (result) in
             switch result {
             case .success(let data):
                 guard let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyHashable] else {
@@ -64,9 +62,8 @@ class NetworkServiceTests: XCTestCase {
     }
     
     func testDownloadArtifact() {
-        UserDefaults.standard.set("ArtifactTest", forKey: "AppID")
         let buildListExpectation = expectation(description: "BuildDownload")
-        NetworkService.downloadArtifact(urlSession: mockURLSession, buildSlug: "6a207b1bc7a8501b", artifactSlug: "0a75ce3ba7d97a2d") { (result) in
+        NetworkService.downloadArtifact(appSlug: "ArtifactTest", urlSession: mockURLSession, buildSlug: "6a207b1bc7a8501b", artifactSlug: "0a75ce3ba7d97a2d") { (result) in
             switch result {
             case .success(let data):
                 guard let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyHashable] else {
@@ -85,9 +82,8 @@ class NetworkServiceTests: XCTestCase {
     }
     
     func testDownloadWorkflows() {
-        UserDefaults.standard.set("WorkflowTest", forKey: "AppID")
         let buildListExpectation = expectation(description: "BuildDownload")
-        NetworkService.downloadWorkflows(urlSession: mockURLSession) { (result) in
+        NetworkService.downloadWorkflows(appSlug: "WorkflowTest", urlSession: mockURLSession) { (result) in
             switch result {
             case .success(let data):
                 guard let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyHashable] else {
@@ -97,6 +93,27 @@ class NetworkServiceTests: XCTestCase {
                 guard let data = dict["data"] as? [String] else { return }
                 XCTAssertEqual(data.count, 14)
                 XCTAssertEqual(data.first, "Pull Request")
+                buildListExpectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+                buildListExpectation.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testDownloadAppList() {
+        let buildListExpectation = expectation(description: "BuildDownload")
+        NetworkService.downloadAppsList(urlSession: mockURLSession) { (result) in
+            switch result {
+            case .success(let data):
+                guard let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyHashable] else {
+                    XCTFail("Unable to read JSON object")
+                    return
+                }
+                guard let data = dict["data"] as? Array<Any>, let firstApp = data.first as? [String: AnyHashable] else { return }
+                XCTAssertEqual(data.count, 3)
+                XCTAssertEqual(firstApp["slug"], "b35317f3dfefff3e")
                 buildListExpectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
