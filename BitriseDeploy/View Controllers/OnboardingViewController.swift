@@ -7,21 +7,24 @@
 //
 
 import UIKit
+import SafariServices
 
 class OnboardingViewController: UIViewController {
 
     @IBOutlet weak var apiKeyTitleLabel: UILabel!
     @IBOutlet weak var apiKeyTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
-
+    @IBOutlet weak var helpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyStyling()
     }
 
     private func applyStyling() {
-        apiKeyTitleLabel.text = "Please enter the Bitrise API key here. It will be stored securely in the app."
+        apiKeyTitleLabel.text = "Please enter the Bitrise Personal Access Token here. It will be stored securely in the app."
         apiKeyTextField.delegate = self
+        doneButton.layer.cornerRadius = 8
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -35,11 +38,17 @@ class OnboardingViewController: UIViewController {
     }
 
     private func showValidationAlert() {
-        let alert = UIAlertController(title: "Error", message: "The API key appears invalid", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "The Personal Access Token appears invalid", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in}))
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func helpButtonTapped(_ sender: Any) {
+        guard let url = URL(string: "https://discuss.bitrise.io/t/personal-access-tokens-beta/1383") else { return }
+        let helpViewController = SFSafariViewController(url: url)
+        present(helpViewController, animated: true, completion: nil)
     }
 }
 

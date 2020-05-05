@@ -17,9 +17,9 @@ class AppListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showOnboardingIfRequired()
         applyStyling()
         configureTableView()
-        showOnboardingIfRequired()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

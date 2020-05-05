@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lPe-dk-FWE">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,16 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API Key" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7S-n9-7VQ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Personal Access Token" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7S-n9-7VQ">
                                 <rect key="frame" x="12" y="431" width="390" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYs-vC-I42">
-                                <rect key="frame" x="187.5" y="497" width="39" height="32"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <rect key="frame" x="24" y="497" width="366" height="44"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="i6O-v2-r54"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="lPe-dk-FWE" eventType="touchUpInside" id="hSy-da-K1H"/>
@@ -36,18 +40,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sil-KH-pDQ">
+                                <rect key="frame" x="163" y="794" width="88" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JJ2-mp-BN7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <state key="normal" title="What is this?">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="helpButtonTapped:" destination="lPe-dk-FWE" eventType="touchUpInside" id="0Zr-Bg-GT1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="b7S-n9-7VQ" secondAttribute="trailing" constant="12" id="8a2-Ed-CJV"/>
                             <constraint firstItem="BhP-wU-8Hn" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="32" id="OfG-MN-sPJ"/>
+                            <constraint firstItem="Sil-KH-pDQ" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="P2u-TS-WS2"/>
                             <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="BhP-wU-8Hn" secondAttribute="trailing" constant="32" id="VtG-8s-h6s"/>
                             <constraint firstItem="b7S-n9-7VQ" firstAttribute="top" secondItem="BhP-wU-8Hn" secondAttribute="bottom" constant="32" id="ZhI-db-goO"/>
+                            <constraint firstItem="Sil-KH-pDQ" firstAttribute="bottom" secondItem="v7Y-OC-lMD" secondAttribute="bottom" constant="-24" id="aeo-lx-zjS"/>
                             <constraint firstItem="DYs-vC-I42" firstAttribute="top" secondItem="b7S-n9-7VQ" secondAttribute="bottom" constant="32" id="eRF-mr-hap"/>
                             <constraint firstItem="b7S-n9-7VQ" firstAttribute="centerY" secondItem="l3F-Hs-5NB" secondAttribute="centerY" id="gmI-mp-bcd"/>
+                            <constraint firstItem="v7Y-OC-lMD" firstAttribute="trailing" secondItem="DYs-vC-I42" secondAttribute="trailing" constant="24" id="hBf-Dw-hvX"/>
                             <constraint firstItem="DYs-vC-I42" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="jrS-5M-kb9"/>
                             <constraint firstItem="BhP-wU-8Hn" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="nKy-bH-ASw"/>
                             <constraint firstItem="b7S-n9-7VQ" firstAttribute="centerX" secondItem="l3F-Hs-5NB" secondAttribute="centerX" id="sGW-pG-hnK"/>
+                            <constraint firstItem="DYs-vC-I42" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="24" id="vSc-G0-6eB"/>
                             <constraint firstItem="b7S-n9-7VQ" firstAttribute="leading" secondItem="v7Y-OC-lMD" secondAttribute="leading" constant="12" id="w9m-Zc-yWw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v7Y-OC-lMD"/>
@@ -56,6 +77,7 @@
                         <outlet property="apiKeyTextField" destination="b7S-n9-7VQ" id="m9T-6a-43f"/>
                         <outlet property="apiKeyTitleLabel" destination="BhP-wU-8Hn" id="vlP-UO-0L9"/>
                         <outlet property="doneButton" destination="DYs-vC-I42" id="udc-I1-WTk"/>
+                        <outlet property="helpButton" destination="Sil-KH-pDQ" id="gr8-kb-vVI"/>
                         <segue destination="wm4-Sv-QhJ" kind="unwind" identifier="unwindToAppListWithRefresh" unwindAction="unwindToAppListWithRefreshWithSegue:" id="qYW-A0-vTY"/>
                     </connections>
                 </viewController>
