@@ -287,7 +287,8 @@
 			children = (
 				86D67860245FDD1000B07358 /* UIImageView.swift */,
 			);
-			path = Extensions;
+			name = Extensions;
+			path = BitriseDeploy/Extensions;
 			sourceTree = "<group>";
 		};
 		86FDC28D244C69A800F2F1D2 /* Services */ = {
