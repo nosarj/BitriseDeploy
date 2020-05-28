@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -9,27 +9,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BuildCell" rowHeight="149" id="KGk-i7-Jjw" customClass="BuildTableViewCell" customModule="Bitrise_Deploy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BuildCell" rowHeight="178" id="KGk-i7-Jjw" customClass="BuildTableViewCell" customModule="Bitrise_Deploy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8b6-hp-ccv">
-                        <rect key="frame" x="12" y="16" width="247" height="117"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8b6-hp-ccv">
+                        <rect key="frame" x="12" y="16" width="247" height="146"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtv-jR-pP2">
-                                <rect key="frame" x="0.0" y="0.0" width="214.5" height="25.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="214.5" height="19.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSo-wC-ng7">
-                                        <rect key="frame" x="26" y="0.0" width="188.5" height="25.5"/>
+                                        <rect key="frame" x="26" y="0.0" width="188.5" height="19.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WdS-ye-FEs">
-                                        <rect key="frame" x="0.0" y="3" width="20" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="OMl-E8-hlj"/>
                                             <constraint firstAttribute="height" constant="20" id="c6L-qD-w0V"/>
@@ -47,7 +47,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0T-75-fHh">
-                                <rect key="frame" x="0.0" y="41.5" width="129" height="14.5"/>
+                                <rect key="frame" x="0.0" y="35.5" width="129" height="14.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="GitBranchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yhc-6S-DN3">
                                         <rect key="frame" x="0.0" y="-2.5" width="20" height="20"/>
@@ -75,10 +75,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7Y-Rp-Rw8">
-                                <rect key="frame" x="0.0" y="72" width="129" height="14.5"/>
+                                <rect key="frame" x="0.0" y="66" width="129" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="flowchart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UvC-Uh-Y2s">
-                                        <rect key="frame" x="0.0" y="-3" width="20" height="22"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="20" height="22"/>
                                         <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Q9C-1e-d7E"/>
@@ -86,7 +86,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Workflow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIp-Y0-Cud">
-                                        <rect key="frame" x="26" y="0.0" width="103" height="14.5"/>
+                                        <rect key="frame" x="26" y="0.0" width="103" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toY-Ge-N6G">
-                                <rect key="frame" x="0.0" y="102.5" width="129" height="14.5"/>
+                                <rect key="frame" x="0.0" y="102" width="129" height="14.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oxU-oW-abd">
                                         <rect key="frame" x="0.0" y="-1" width="20" height="17.5"/>
@@ -130,12 +130,40 @@
                                     <constraint firstItem="5Of-lo-6Fe" firstAttribute="top" secondItem="toY-Ge-N6G" secondAttribute="top" id="gFY-No-jv5"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHh-K0-R9B">
+                                <rect key="frame" x="0.0" y="132.5" width="131" height="13.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="pencil.and.ellipsis.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jDM-Qw-Q5g">
+                                        <rect key="frame" x="0.0" y="-3" width="20" height="18.5"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="D0Y-wF-ZfJ"/>
+                                            <constraint firstAttribute="height" constant="20" id="vbx-AS-MOb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Commit Message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBQ-KI-cmv">
+                                        <rect key="frame" x="26" y="0.0" width="105" height="13.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sBQ-KI-cmv" secondAttribute="trailing" id="KOY-J9-7e6"/>
+                                    <constraint firstItem="jDM-Qw-Q5g" firstAttribute="leading" secondItem="bHh-K0-R9B" secondAttribute="leading" id="V7u-VG-B1j"/>
+                                    <constraint firstItem="sBQ-KI-cmv" firstAttribute="leading" secondItem="jDM-Qw-Q5g" secondAttribute="trailing" constant="6" id="YHc-WP-XEF"/>
+                                    <constraint firstItem="jDM-Qw-Q5g" firstAttribute="centerY" secondItem="bHh-K0-R9B" secondAttribute="centerY" id="ZUx-o3-lax"/>
+                                    <constraint firstAttribute="bottom" secondItem="sBQ-KI-cmv" secondAttribute="bottom" id="eYq-7q-dbc"/>
+                                    <constraint firstItem="sBQ-KI-cmv" firstAttribute="top" secondItem="bHh-K0-R9B" secondAttribute="top" id="opM-o4-EI1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                     </stackView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtv-oN-r2r">
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="qtv-oN-r2r">
                         <rect key="frame" x="271" y="21" width="37" height="20.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cp-CD-BXz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cp-CD-BXz">
                                 <rect key="frame" x="3" y="3" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,15 +197,18 @@
                 <outlet property="branchNameLabel" destination="Hts-lh-LJx" id="qNB-p0-OiH"/>
                 <outlet property="buildNumberLabel" destination="4cp-CD-BXz" id="njP-0M-nj0"/>
                 <outlet property="buildNumberView" destination="qtv-oN-r2r" id="4VG-rK-Hds"/>
+                <outlet property="commitMessageLabel" destination="sBQ-KI-cmv" id="6rU-cX-JLm"/>
+                <outlet property="commitMessageView" destination="bHh-K0-R9B" id="I2E-wk-ZEq"/>
                 <outlet property="versionLabel" destination="pSo-wC-ng7" id="GwW-Tn-Uob"/>
                 <outlet property="workflowLabel" destination="aIp-Y0-Cud" id="hcR-LZ-a77"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="162.38839285714286"/>
+            <point key="canvasLocation" x="137.68115942028987" y="172.09821428571428"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="GitBranchIcon" width="41" height="55"/>
         <image name="flowchart" catalog="system" width="128" height="128"/>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
         <image name="person" catalog="system" width="128" height="117"/>
     </resources>
 </document>

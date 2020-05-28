@@ -19,6 +19,8 @@ class BuildTableViewCell: UITableViewCell {
     @IBOutlet weak var authorView: UIView!
     @IBOutlet weak var authorIcon: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var commitMessageView: UIView!
+    @IBOutlet weak var commitMessageLabel: UILabel!
     
     var build: Build? { didSet {
         refresh()
@@ -50,14 +52,28 @@ class BuildTableViewCell: UITableViewCell {
         if let buildNumber = build?.buildNumber {
             buildNumberLabel.text = " #\(buildNumber) "
         }
+        configureAuthorView()
+        configureCommitMessageView()
+        workflowLabel.text = build?.triggeredWorkflow
+        branchNameLabel.text = build?.branch
+    }
+    
+    private func configureAuthorView() {
         if let author = build?.originalBuildParams?.pullRequestAuthor {
             authorLabel.text = author
             authorView.isHidden = false
         } else {
             authorView.isHidden = true
         }
-        workflowLabel.text = build?.triggeredWorkflow
-        branchNameLabel.text = build?.branch
+    }
+    
+    private func configureCommitMessageView() {
+        if let commitMessage = build?.commitMessage {
+            commitMessageLabel.text = commitMessage
+            commitMessageView.isHidden = false
+        } else {
+            commitMessageView.isHidden = true
+        }
     }
     
     private func setAvatarImage() {
