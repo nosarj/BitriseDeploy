@@ -8,18 +8,25 @@
 
 import UIKit
 
+enum Section: CaseIterable {
+    case main
+}
+
 class AppListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var refreshControl = UIRefreshControl()
     var apps = [App]()
     var selectedApp: App?
-
+    typealias DataSource = UITableViewDiffableDataSource<Section, App>
+    lazy var dataSource: DataSource? = makeDataSource()
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Section, App>? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        showOnboardingIfRequired()
-        applyStyling()
         configureTableView()
+        applyStyling()
+        showOnboardingIfRequired()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,7 +40,6 @@ class AppListViewController: UIViewController {
 
     private func configureTableView() {
         tableView.delegate = self
-        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "AppTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "AppListCell")
         tableView.addSubview(refreshControl)
@@ -60,46 +66,57 @@ class AppListViewController: UIViewController {
     
     @objc private func downloadAppList() {
         refreshControl.beginRefreshing()
-        AppListService.downloadIOSAppList { (result) in
+        AppListService.downloadIOSAppList { [self] (result) in
             switch result {
             case .failure( let error):
                 self.showErrorAlert(error)
-            case .success(let apps):
-                self.apps = apps
-                DispatchQueue.main.async {
-                    self.refreshControl.endRefreshing()
-                    self.tableView.reloadData()
+            case .success(let downloadedApps):
+                DispatchQueue.main.async { [self] in
+                    apps = downloadedApps
+                    refreshControl.endRefreshing()
+                    update()
                 }
             }
         }
     }
     
     private func showErrorAlert(_ error: (Error)) {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-        }))
         DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            }))
             self.present(alert, animated: true, completion: nil)
         }
     }
 }
 
-extension AppListViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return apps.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AppListCell", for: indexPath) as? AppTableViewCell else {
-            fatalError("Unable to dequeue Build Cell")
-        }
-        cell.app = apps[indexPath.row]
-        return cell
-    }
+extension AppListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedApp = apps[indexPath.row]
+        guard let app = dataSource?.itemIdentifier(for: indexPath) else {
+          return
+        }
+        selectedApp = app
         performSegue(withIdentifier: "BuildListSegue", sender: self)
+    }
+    
+    func makeDataSource() -> DataSource {
+        let dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, app) in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AppListCell", for: indexPath) as? AppTableViewCell else {
+                fatalError("Unable to dequeue Build Cell")
+            }
+            cell.app = app
+            return cell
+        })
+        return dataSource
+    }
+    
+    func update() {
+        var newSnapshot = NSDiffableDataSourceSnapshot<Section, App>()
+        newSnapshot.appendSections([.main])
+        newSnapshot.appendItems(apps, toSection: .main)
+        currentSnapshot = newSnapshot
+        self.dataSource?.apply(newSnapshot, animatingDifferences: true)
     }
 }

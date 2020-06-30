@@ -28,3 +28,13 @@ struct App: Codable {
         case slug, status, title
     }
 }
+
+extension App: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(slug)
+    }
+    
+    static func == (lhs: App, rhs: App) -> Bool {
+        return lhs.slug == rhs.slug
+    }
+}
