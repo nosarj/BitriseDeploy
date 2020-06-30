@@ -41,7 +41,12 @@ class Build: Decodable {
     }
 }
 
-extension Build: Equatable {
+extension Build: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(slug)
+    }
+
     static func == (lhs: Build, rhs: Build) -> Bool {
         if lhs.slug == rhs.slug {
             return true

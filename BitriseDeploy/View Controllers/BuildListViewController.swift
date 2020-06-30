@@ -16,6 +16,9 @@ class BuildListViewController: UIViewController {
     var app: App?
     var builds = [Build]()
     var filteredBuilds: [Build] = []
+    typealias DataSource = UITableViewDiffableDataSource<Section, Build>
+    lazy var dataSource: DataSource? = makeDataSource()
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Build>? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,7 @@ class BuildListViewController: UIViewController {
     
     @IBAction func unwindToBuildListFromAuthorFilter(segue: UIStoryboardSegue) {
         filterBuilds()
-        tableView.reloadData()
+        update()
     }
 
     private func applyStyling() {
@@ -46,7 +49,6 @@ class BuildListViewController: UIViewController {
 
     private func configureTableView() {
         tableView.delegate = self
-        tableView.dataSource = self
         tableView.estimatedRowHeight = 121
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "BuildTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "BuildCell")
@@ -63,16 +65,16 @@ class BuildListViewController: UIViewController {
     @objc private func downloadBuilds() {
         refreshControl.beginRefreshing()
         guard let appSlug = app?.slug else { return }
-        BuildService().downloadBuilds(appSlug: appSlug) { (result) in
+        BuildService().downloadBuilds(appSlug: appSlug) { [self] (result) in
             switch result {
             case .failure( let error):
-                self.showErrorAlert(error)
+                showErrorAlert(error)
             case .success(let builds):
                 self.builds = builds
                 self.filterBuilds()
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     self.refreshControl.endRefreshing()
-                    self.tableView.reloadData()
+                    update()
                 }
             }
         }
@@ -103,23 +105,33 @@ class BuildListViewController: UIViewController {
     }
 }
 
-extension BuildListViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredBuilds.count
-    }
+extension BuildListViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BuildCell", for: indexPath) as? BuildTableViewCell else {
-            fatalError("Unable to dequeue Build Cell")
-        }
-        cell.build = filteredBuilds[indexPath.row]
-        cell.avatarURL = app?.avatarURL
-        return cell
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let build = builds[indexPath.row]
+        guard let build = dataSource?.itemIdentifier(for: indexPath) else {
+          return
+        }
         guard let url = URL(string: build.app?.publicInstallPageURL ?? "") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    func makeDataSource() -> DataSource {
+        let dataSource = DataSource(tableView: tableView, cellProvider: { [self] (tableView, indexPath, build) in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "BuildCell", for: indexPath) as? BuildTableViewCell else {
+                fatalError("Unable to dequeue Build Cell")
+            }
+            cell.build = build
+            cell.avatarURL = app?.avatarURL
+            return cell
+        })
+        return dataSource
+    }
+    
+    func update() {
+        var newSnapshot = NSDiffableDataSourceSnapshot<Section, Build>()
+        newSnapshot.appendSections([.main])
+        newSnapshot.appendItems(filteredBuilds, toSection: .main)
+        currentSnapshot = newSnapshot
+        self.dataSource?.apply(newSnapshot, animatingDifferences: true)
     }
 }

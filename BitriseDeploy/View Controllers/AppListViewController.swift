@@ -69,7 +69,7 @@ class AppListViewController: UIViewController {
         AppListService.downloadIOSAppList { [self] (result) in
             switch result {
             case .failure( let error):
-                self.showErrorAlert(error)
+                showErrorAlert(error)
             case .success(let downloadedApps):
                 DispatchQueue.main.async { [self] in
                     apps = downloadedApps
