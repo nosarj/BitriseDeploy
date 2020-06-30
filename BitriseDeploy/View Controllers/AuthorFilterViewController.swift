@@ -13,12 +13,16 @@ class AuthorFilterViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var authorList: [String] = []
     var selectedAuthors: [String] = []
+    typealias DataSource = UITableViewDiffableDataSource<Section, String>
+    lazy var dataSource: DataSource? = makeDataSource()
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Section, String>? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         applyStyling()
         configureSelectedAuthors()
         configureTableView()
+        update()
     }
 
     private func applyStyling() {
@@ -27,7 +31,6 @@ class AuthorFilterViewController: UIViewController {
 
     private func configureTableView() {
         tableView.delegate = self
-        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedSectionFooterHeight = 40
         tableView.register(UINib(nibName: "InfoFooterView", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "FooterView")
@@ -47,23 +50,28 @@ class AuthorFilterViewController: UIViewController {
     }
 }
 
-extension AuthorFilterViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return authorList.count
-    }
+extension AuthorFilterViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "basicStyle") else {
-            fatalError("Unable to dequeue cell")
-        }
-        let author = authorList[indexPath.row]
-        cell.textLabel?.text = author
-        if selectedAuthors.contains(author) {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
-        return cell
+    func makeDataSource() -> DataSource {
+        let dataSource = DataSource(tableView: tableView, cellProvider: { [self] (tableView, indexPath, author) in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "basicStyle", for: indexPath)
+            cell.textLabel?.text = author
+            if selectedAuthors.contains(author) {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
+            return cell
+        })
+        return dataSource
+    }
+    
+    func update() {
+        var newSnapshot = NSDiffableDataSourceSnapshot<Section, String>()
+        newSnapshot.appendSections([.main])
+        newSnapshot.appendItems(authorList, toSection: .main)
+        currentSnapshot = newSnapshot
+        self.dataSource?.apply(newSnapshot, animatingDifferences: true)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

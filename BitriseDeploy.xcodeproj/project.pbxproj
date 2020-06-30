@@ -252,9 +252,9 @@
 				86D67857245EED2400B07358 /* AppListViewController.swift */,
 				8656B517244C38C500AA11E2 /* BuildListViewController.swift */,
 				863802BE244D85FB00D11C2B /* AuthorFilterViewController.swift */,
-				863802CA244E27C000D11C2B /* OnboardingViewController.swift */,
 				863802CE244F17C100D11C2B /* WorkflowFilterViewController.swift */,
 				86850D2F24501313004F52F9 /* FilterMenuViewController.swift */,
+				863802CA244E27C000D11C2B /* OnboardingViewController.swift */,
 				86FDC298244C760400F2F1D2 /* Cells */,
 			);
 			name = "View Controllers";
